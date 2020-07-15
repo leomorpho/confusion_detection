@@ -6,6 +6,7 @@ import logging
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -33,3 +34,20 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(QWidget())
         self.showMaximized()
+
+    def keyPressEvent(self, event):
+
+        label: str = None
+        if event.key() == Qt.Key_0:
+            label = "none"
+        elif event.key() == Qt.Key_1:
+            label = "confused"
+        elif event.key() == Qt.Key_2:
+            label = "probably_confused"
+        elif event.key() == Qt.Key_3:
+            label = "uncertain"
+        elif event.key() == Qt.Key_4:
+            label = "probably_not_confused"
+        elif event.key() == Qt.Key_5:
+            label = "not_confused"
+        print(label)
