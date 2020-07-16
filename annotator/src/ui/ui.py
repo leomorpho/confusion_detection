@@ -64,6 +64,12 @@ class MainWindow(QMainWindow):
         # Load next frame
         self.frames_paths, is_new_dir = self.frame_processor.next()
 
+        if self.frames_paths == []:
+            widget = QLabel("All directories processed")
+            self.setCentralWidget(widget)
+            log.info("All directories processed")
+            return
+
         if is_new_dir:
             log.debug("Press \"Enter\" to load next directory. Press \"Escape\" to save and exit the program")
             if event.key() == Qt.Key_Enter:

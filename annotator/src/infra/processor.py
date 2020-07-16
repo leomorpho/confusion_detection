@@ -73,7 +73,12 @@ class FrameProcessor:
         if not frames:
             # Load next directory and extract images for directory coming
             # after this one (ffmpeg takes some time)
-            self.curr_dir = self.queue.pop()
+            try:
+                self.curr_dir = self.queue.pop()
+            except IndexError:
+                return [], False
+
+                return
             log.debug(f"New current directory is {self.curr_dir}")
 
             # Extract frames from all videos
@@ -107,7 +112,8 @@ class FrameProcessor:
         if os.path.exists(frames_dir_path):
             num_images = len(glob.glob(f"{frames_dir_path}/*"))
             if num_images > 0:
-                raise Exception("Frames directory for video already exists")
+                log.debug("Frames directory for video already exists")
+                return
         else:
             os.makedirs(frames_dir_path)
 
