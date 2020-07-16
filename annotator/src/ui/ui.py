@@ -7,6 +7,29 @@ import logging
 import sys
 
 
+class Images(QWidget):
+    """
+    Display images in a grid
+    """
+    pass
+
+class Buttons(QWidget):
+    """
+    Display label button in a line
+    """
+    pass
+
+class CentralWidget(QWidget):
+    def __init__(self):
+        super().__init__()
+        image_widget = Images()
+        buttons_widget = Buttons()
+
+        vbox = QVBoxLayout(self)
+        vbox.addWidget(image_widget)
+        vbox.addWidget(buttons_widget)
+        self.setLayout(vbox)
+
 
 class MainWindow(QMainWindow):
     def __init__(self, data_path):
@@ -38,7 +61,10 @@ class MainWindow(QMainWindow):
         # TODO: Create widget with frames
         # Show images in a grid
 
-        self.setCentralWidget(QWidget())
+
+        central_widget = CentralWidget()
+
+        self.setCentralWidget(central_widget)
         self.showMaximized()
 
     def keyPressEvent(self, event):
@@ -71,7 +97,8 @@ class MainWindow(QMainWindow):
             return
 
         if is_new_dir:
-            log.debug("Press \"Enter\" to load next directory. Press \"Escape\" to save and exit the program")
+            log.debug(
+                "Press \"Enter\" to load next directory. Press \"Escape\" to save and exit the program")
             if event.key() == Qt.Key_Enter:
                 self.showing_frames = True
                 # continue
