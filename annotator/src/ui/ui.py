@@ -86,6 +86,8 @@ class Buttons(QWidget):
         hbox.addWidget(QLabel("(3) Ambivalent"))
         hbox.addWidget(QLabel("(4) Likely"))
         hbox.addWidget(QLabel("(5) Confused"))
+        hbox.addWidget(QLabel("(R key) previous"))
+        hbox.addWidget(QLabel("(L key) next"))
         self.setLayout(hbox)
 
 
@@ -149,34 +151,33 @@ class MainWindow(QMainWindow):
 
     def keyPressEvent(self, event):
 
-        save_and_next = False
 
+        previous_frame = False
         label: str = None
+
         if event.key() == Qt.Key_0:
             label = "none"
-            save_and_next = True
         elif event.key() == Qt.Key_1:
             label = "not confused"
-            save_and_next = True
         elif event.key() == Qt.Key_2:
             label = "probably not confused"
-            save_and_next = True
-        elif event.key() == Qt.Key_3:
+        elif event.key() == Qt.Key_3 or event.key() == Qt.Key_Right :
             label = "uncertain"
-            save_and_next = True
         elif event.key() == Qt.Key_4:
             label = "probably confused"
-            save_and_next = True
         elif event.key() == Qt.Key_5:
             label = "confused"
-            save_and_next = True
+        elif event.key() == Qt.Key_Left:
+            previous_frame = True
 
-        if save_and_next:
-            # Save label for current frames
-            self.frame_processor.save(label)
-
+        if label:
             log.debug(f"Assigned label: {label}")
+            # Save label for current frames
+            self.save_frame(label)
             self.next_frame()
+
+        elif previous_frame:
+            self.prev_frame()
 
     def next_frame(self):
         # Load next frame
@@ -190,7 +191,8 @@ class MainWindow(QMainWindow):
 
         if is_new_dir:
             log.debug(
-                "Press \"Enter\" to load next directory. Press \"Escape\" to save and exit the program")
+                "Press \"Enter\" to load next directory. ",
+                "Press \"Escape\" to save and exit the program")
             if event.key() == Qt.Key_Enter:
                 self.showing_frames = True
                 # continue
@@ -199,3 +201,22 @@ class MainWindow(QMainWindow):
 
         # Update UI
         self.central_widget.update_images(frames_paths)
+
+    def prev_frame(self):
+        """
+        Get the previous frame if there is any. Does not change the processed data.
+        """
+        log.info("Get previous frame")
+        frames = self.frame_processor.prev()
+
+        if frames:
+            log.info(f"prev: {frames}")
+            # Update UI
+            self.central_widget.update_images(frames)
+
+    def save_frame(self, label):
+        """
+        Abstract frame_processor
+        """
+        self.frame_processor.save(label)
+
