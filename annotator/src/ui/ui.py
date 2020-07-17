@@ -86,8 +86,8 @@ class Buttons(QWidget):
         hbox.addWidget(QLabel("(3) Ambivalent"))
         hbox.addWidget(QLabel("(4) Likely"))
         hbox.addWidget(QLabel("(5) Confused"))
-        hbox.addWidget(QLabel("(R key) previous"))
-        hbox.addWidget(QLabel("(L key) next"))
+        hbox.addWidget(QLabel("(R arrow) previous"))
+        hbox.addWidget(QLabel("(L arrow) next"))
         self.setLayout(hbox)
 
 
