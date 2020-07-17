@@ -140,11 +140,6 @@ class MainWindow(QMainWindow):
 
         self.central_widget = CentralWidget()
 
-        # label = QLabel()
-        # im = QPixmap('./0001.jpeg')
-        # label.setPixmap(im)
-        # self.setCentralWidget(label)
-
         self.setCentralWidget(self.central_widget)
         self.showMaximized()
         self.next_frame()
@@ -181,26 +176,30 @@ class MainWindow(QMainWindow):
 
     def next_frame(self):
         # Load next frame
-        frames_paths, is_new_dir = self.frame_processor.next()
+        frames_paths = self.frame_processor.next()
 
-        if frames_paths == []:
-            widget = QLabel("All directories processed")
-            self.setCentralWidget(widget)
-            log.info("All directories processed")
-            return
+        if not frames_paths:
+            msg = QMessageBox()
+            msg.setWindowTitle("Finished current directory")
+            msg.setText("Save and go on to next directory?")
+            msg.setIcon(QMessageBox.Question)
+            msg.setStandardButtons(QMessageBox.No | QMessageBox.Yes)
+            msg.setDefaultButton(QMessageBox.No)
+            msg.setDetailedText("If you click YES, the labels will be saved and the next directory will be loaded.")
 
-        if is_new_dir:
-            log.debug(
-                "Press \"Enter\" to load next directory. ",
-                "Press \"Escape\" to save and exit the program")
-            if event.key() == Qt.Key_Enter:
-                self.showing_frames = True
-                # continue
-            if event.key() == Qt.Key_Escape:
-                self.close()
+            choice = msg.exec_()
 
-        # Update UI
-        self.central_widget.update_images(frames_paths)
+            if choice == QMessageBox.Yes:
+                self.frame_processor.save_to_disk()
+                self.frame_processor.next_directory()
+                frames_paths = self.frame_processor.next()
+            if choice == QMessageBox.No:
+                # Undo next frame
+                _ = self.frame_processor.prev()
+                pass
+        else:
+            # Update UI
+            self.central_widget.update_images(frames_paths)
 
     def prev_frame(self):
         """
@@ -210,7 +209,7 @@ class MainWindow(QMainWindow):
         frames = self.frame_processor.prev()
 
         if frames:
-            log.info(f"prev: {frames}")
+            log.debug(f"prev: {frames}")
             # Update UI
             self.central_widget.update_images(frames)
 

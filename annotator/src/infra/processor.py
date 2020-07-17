@@ -63,10 +63,17 @@ class FrameProcessor:
 
     def save(self, label: str):
         """
-        Save the label for a frame
+        Save the label for a frame. This method does not save to disk.
         """
         self.results[self.curr_frame] = label
-        print(self.results)
+
+    def save_to_disk(self):
+        """
+        Persist results to disk
+        """
+        # TODO: persist results
+        pass
+
 
     def next(self) -> [List[str], bool]:
         """
@@ -74,8 +81,6 @@ class FrameProcessor:
 
         :return: true if next frame is from a new directory from the queue
         """
-        is_new_dir = False
-
         # If just starting up, pick first directory
         if not self.curr_dir:
             self.curr_dir = self.queue.pop(0)
@@ -83,33 +88,11 @@ class FrameProcessor:
         log.debug(f"current directory: {self.curr_dir}")
 
         frames = self.next_frames(self.curr_dir, self.curr_frame)
+        log.debug(f"frames {frames}")
 
-        if not frames:
-            # Load next directory and extract images for directory coming
-            # after this one (ffmpeg takes some time)
-            try:
-                self.curr_dir = self.queue.pop()
-            except IndexError:
-                return [], False
+        self.curr_frame += 1
 
-            log.debug(f"New current directory is {self.curr_dir}")
-
-            # Extract frames from all videos
-            video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
-            for video_path in video_paths:
-                # Extract frames to sibling directory of video (place dir next to vid)
-                self.extract_all_frames_from_video(video_path)
-
-            is_new_dir = True
-
-            # Reset results dictionnary
-            self.results = dict()
-
-            frames = self.next_frames(self.curr_dir, self.curr_frame)
-        else:
-            self.curr_frame += 1
-
-        return frames, is_new_dir
+        return frames
 
     def prev(self) -> [List[str]]:
         """
@@ -134,6 +117,27 @@ class FrameProcessor:
             frames_paths.append(prev_frame_path)
 
         return frames_paths
+
+    def next_directory(self):
+        # Load next directory and extract images for directory coming
+        # after this one (ffmpeg takes some time)
+        try:
+            self.curr_dir = self.queue.pop()
+        except IndexError:
+            return [], False
+
+        log.info(f"New current directory is {self.curr_dir}")
+
+        # Extract frames from all videos
+        video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
+        for video_path in video_paths:
+            # Extract frames to sibling directory of video (place dir next to vid)
+            self.extract_all_frames_from_video(video_path)
+
+        # Reset results dictionnary
+        self.results = dict()
+
+        frames = self.next_frames(self.curr_dir, self.curr_frame)
 
     @staticmethod
     def extract_all_frames_from_video(video_path):
@@ -180,7 +184,10 @@ class FrameProcessor:
 
         for path in dirs_paths:
             # Frames directory has name of video minus extension
-            next_frame_path = f"{path}/{frame_number}.jpeg"
+            try:
+                next_frame_path = glob.glob(f"{path}/{frame_number}*")[0]
+            except IndexError:
+                return []
             frames_paths.append(next_frame_path)
 
         log.debug(f"Next frames are at {frames_paths}")
