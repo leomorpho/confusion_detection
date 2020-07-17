@@ -4,6 +4,7 @@ import sys
 import os
 import subprocess
 import shlex
+import json
 from typing import List
 from src.infra.logger import log
 
@@ -72,8 +73,10 @@ class FrameProcessor:
         Persist results to disk
         """
         # TODO: persist results
-        pass
-
+        filename = self.curr_dir.split("/")[-1].split(".")[0]
+        result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
+        with open(result_path, "w+") as f:
+            json.dump(self.results, f)
 
     def next(self) -> [List[str], bool]:
         """
