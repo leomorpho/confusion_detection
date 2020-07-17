@@ -35,6 +35,8 @@ class FrameProcessor:
         processed_dirs = glob.glob(f"{data_path}/{PROCESSED}/*")
 
         self.queue = raw_dirs
+        log.info(f"Queue length: {len(self.queue)}")
+        log.info(f"First in queue: {self.queue[:3]}")
 
         # Build queue of unprocessed (unlabeled) directories
         # It's O^2 time but we don't care...
@@ -52,7 +54,7 @@ class FrameProcessor:
         self.curr_dir = None
 
         # Frame counter
-        self.curr_frame = 0
+        self.curr_frame = 1
 
     def save(self, label: str):
         """
@@ -68,6 +70,12 @@ class FrameProcessor:
         """
         is_new_dir = False
 
+        # If just starting up, pick first directory
+        if not self.curr_dir:
+            self.curr_dir = self.queue.pop(0)
+
+        log.debug(f"current directory: {self.curr_dir}")
+
         frames = self.next_frames(self.curr_dir, self.curr_frame)
 
         if not frames:
@@ -78,7 +86,6 @@ class FrameProcessor:
             except IndexError:
                 return [], False
 
-                return
             log.debug(f"New current directory is {self.curr_dir}")
 
             # Extract frames from all videos
@@ -88,6 +95,9 @@ class FrameProcessor:
                 self.extract_all_frames_from_video(video_path)
 
             is_new_dir = True
+            frames = self.next_frames(self.curr_dir, self.curr_frame)
+        else:
+            self.curr_frame += 1
 
         return frames, is_new_dir
 
@@ -124,18 +134,20 @@ class FrameProcessor:
     @classmethod
     def next_frames(cls, parent_dir, curr_frame_count) -> List[str]:
         """
-        Return paths to next frames
+        Return paths to next frames and current frame count
         """
-        video_paths = cls.get_all_video_paths_in_dir(parent_dir)
+        dirs_paths = cls.get_all_dir_paths_in_dir(parent_dir)
+        log.debug(f"Dirs of extracted frames: {dirs_paths}")
 
         frames_paths = []
 
         # Pad next frame with zeroes so it's MAX_DIGITS_FRAME_NAME digits wide
-        next_frame_count = f"{curr_frame_count + 1}".zfill(MAX_DIGITS_FRAME_NAME)
+        frame_number = f"{curr_frame_count}".zfill(MAX_DIGITS_FRAME_NAME)
 
-        for path in video_paths:
-            next_frame_path = glob.glob(f"{path}/*{next_frame_count}*")
-            frames_paths.extend(next_frame_path)
+        for path in dirs_paths:
+            # Frames directory has name of video minus extension
+            next_frame_name = f"{path}/{frame_number}.jpeg"
+            frames_paths.append(next_frame_name)
 
         log.debug(f"Next frames are at {frames_paths}")
         return frames_paths
@@ -153,3 +165,10 @@ class FrameProcessor:
             log.debug(f"No videos found at path {path}")
 
         return video_paths
+
+    @staticmethod
+    def get_all_dir_paths_in_dir(path) -> List[str]:
+        """
+        Return the paths to every video in a directory
+        """
+        return [f"{path}/{i}" for i in os.listdir(path) if os.path.isdir(f"{path}/{i}")]

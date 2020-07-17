@@ -5,41 +5,119 @@ from src.infra.processor import FrameProcessor
 from src.infra.logger import log
 import logging
 import sys
+import os
 
 
 class Images(QWidget):
     """
     Display images in a grid
     """
-    pass
+
+    def __init__(self, image_paths=None, images_per_row=4):
+        super().__init__()
+
+        self.img_not_available_path = './media/no_image_available.png'
+        grid = QGridLayout(self)
+
+        self.label1 = QLabel()
+        self.label2 = QLabel()
+        self.label3 = QLabel()
+        self.label4 = QLabel()
+
+        im = QPixmap(self.img_not_available_path)
+        self.label1.setPixmap(im)
+        self.label2.setPixmap(im)
+        self.label3.setPixmap(im)
+        self.label4.setPixmap(im)
+        grid.addWidget(self.label1, 0, 0)
+        grid.addWidget(self.label2, 0, 1)
+        grid.addWidget(self.label3, 1, 0)
+        grid.addWidget(self.label4, 1, 1)
+        self.setLayout(grid)
+
+    def update_images(self, paths):
+        if os.path.exists(paths[0]):
+            im1 = QPixmap(paths[0])
+            im1 = im1.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label1.setPixmap(im1)
+        else:
+            im = QPixmap(self.img_not_available_path)
+            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label1.setPixmap(im)
+
+        if os.path.exists(paths[1]):
+            im2 = QPixmap(paths[1])
+            im2 = im2.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label2.setPixmap(im2)
+        else:
+            im = QPixmap(self.img_not_available_path)
+            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label2.setPixmap(im)
+
+        if os.path.exists(paths[2]):
+            im3 = QPixmap(paths[2])
+            im3 = im3.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label3.setPixmap(im3)
+        else:
+            im = QPixmap(self.img_not_available_path)
+            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label3.setPixmap(im)
+
+        if os.path.exists(paths[3]):
+            im4 = QPixmap(paths[3])
+            im4 = im4.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label4.setPixmap(im4)
+        else:
+            im = QPixmap(self.img_not_available_path)
+            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+            self.label4.setPixmap(im)
+
 
 class Buttons(QWidget):
     """
     Display label button in a line
     """
-    pass
 
-class CentralWidget(QWidget):
     def __init__(self):
         super().__init__()
-        image_widget = Images()
+        hbox = QHBoxLayout(self)
+        hbox.addWidget(QLabel("(1) No"))
+        hbox.addWidget(QLabel("(2) Unlikely"))
+        hbox.addWidget(QLabel("(3) Ambivalent"))
+        hbox.addWidget(QLabel("(4) Likely"))
+        hbox.addWidget(QLabel("(5) Confused"))
+        self.setLayout(hbox)
+
+
+class CentralWidget(QWidget):
+    def __init__(self, images_paths=None):
+        super().__init__()
+        # self.update_images(images_paths)
+        self.image_widget = Images(images_paths)
         buttons_widget = Buttons()
 
         vbox = QVBoxLayout(self)
-        vbox.addWidget(image_widget)
+
+        vbox.addWidget(self.image_widget)
         vbox.addWidget(buttons_widget)
         self.setLayout(vbox)
+
+    def update_images(self, images_paths=None):
+        """
+        Updates the images in the UI
+        """
+        self.image_widget.update_images(images_paths)
 
 
 class MainWindow(QMainWindow):
     def __init__(self, data_path):
         QMainWindow.__init__(self)
 
-        # Initialize all other params
-        self.init_widget()
-
         # Create frame processor
         self.frame_processor = FrameProcessor(data_path)
+
+        # Initialize all other params
+        self.init_widget()
 
     def init_widget(self):
         self.setWindowTitle("Annotator")
@@ -58,39 +136,53 @@ class MainWindow(QMainWindow):
         # Window dimensions
         geometry = qApp.desktop().availableGeometry(self)
 
-        # TODO: Create widget with frames
-        # Show images in a grid
+        self.central_widget = CentralWidget()
 
+        # label = QLabel()
+        # im = QPixmap('./0001.jpeg')
+        # label.setPixmap(im)
+        # self.setCentralWidget(label)
 
-        central_widget = CentralWidget()
-
-        self.setCentralWidget(central_widget)
+        self.setCentralWidget(self.central_widget)
         self.showMaximized()
+        self.next_frame()
 
     def keyPressEvent(self, event):
+
+        save_and_next = False
 
         label: str = None
         if event.key() == Qt.Key_0:
             label = "none"
+            save_and_next = True
         elif event.key() == Qt.Key_1:
             label = "not confused"
+            save_and_next = True
         elif event.key() == Qt.Key_2:
             label = "probably not confused"
+            save_and_next = True
         elif event.key() == Qt.Key_3:
             label = "uncertain"
+            save_and_next = True
         elif event.key() == Qt.Key_4:
             label = "probably confused"
+            save_and_next = True
         elif event.key() == Qt.Key_5:
             label = "confused"
-        # Save label for current frames
-        self.frame_processor.save(label)
+            save_and_next = True
 
-        log.debug(label)
+        if save_and_next:
+            # Save label for current frames
+            self.frame_processor.save(label)
 
+            log.debug(f"Assigned label: {label}")
+            self.next_frame()
+
+    def next_frame(self):
         # Load next frame
-        self.frames_paths, is_new_dir = self.frame_processor.next()
+        frames_paths, is_new_dir = self.frame_processor.next()
 
-        if self.frames_paths == []:
+        if frames_paths == []:
             widget = QLabel("All directories processed")
             self.setCentralWidget(widget)
             log.info("All directories processed")
@@ -104,3 +196,6 @@ class MainWindow(QMainWindow):
                 # continue
             if event.key() == Qt.Key_Escape:
                 self.close()
+
+        # Update UI
+        self.central_widget.update_images(frames_paths)
