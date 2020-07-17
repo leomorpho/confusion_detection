@@ -74,7 +74,7 @@ class FrameProcessor:
         """
         Persist results to disk
         """
-        # TODO: persist results
+
         filename = self.curr_dir.split("/")[-1].split(".")[0]
         result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
         with open(result_path, "w+") as f:
@@ -103,6 +103,7 @@ class FrameProcessor:
         """
         Load prev frame and if no prev frame, return empty list
         """
+
 
         # If there is no prev frame
         if self.curr_frame == 1:
@@ -192,6 +193,7 @@ class FrameProcessor:
                 next_frame_path = glob.glob(f"{path}/{frame_number}*")[0]
             except IndexError:
                 return []
+          
             frames_paths.append(next_frame_path)
 
         log.debug(f"Next frames are at {frames_paths}")

@@ -88,6 +88,7 @@ class Buttons(QWidget):
         hbox.addWidget(QLabel("(5) Confused"))
         hbox.addWidget(QLabel("(R arrow) previous"))
         hbox.addWidget(QLabel("(L arrow) next"))
+    
         self.setLayout(hbox)
 
 
@@ -233,7 +234,9 @@ class MainWindow(QMainWindow):
         frames = self.frame_processor.prev()
 
         if frames:
+
             log.debug(f"prev: {frames}")
+
             # Update UI
             self.central_widget.update_images(frames)
 
@@ -245,4 +248,3 @@ class MainWindow(QMainWindow):
 
     def extract_frames_for_all_dirs(self):
         self.frame_processor.extract_frames_for_all_dirs()
-
