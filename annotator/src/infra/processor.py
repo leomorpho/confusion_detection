@@ -211,3 +211,12 @@ class FrameProcessor:
         Return the paths to every video in a directory
         """
         return [f"{path}/{i}" for i in os.listdir(path) if os.path.isdir(f"{path}/{i}")]
+
+    def extract_frames_for_all_dirs(self):
+        for directory in self.queue:
+            video_paths = self.get_all_video_paths_in_dir(directory)
+            for video_path in video_paths:
+                # Extract frames to sibling directory of video (place dir next to vid)
+                self.extract_all_frames_from_video(video_path)
+        log.info("Finished extracting frames for all videos from all directories")
+

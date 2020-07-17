@@ -135,6 +135,11 @@ class MainWindow(QMainWindow):
         exit_action.triggered.connect(self.close)
         self.file_menu.addAction(exit_action)
 
+        # Extract frames QAction
+        frames_action = QAction("Extract all frames", self)
+        frames_action.triggered.connect(self.extract_frames_for_all_dirs)
+        self.file_menu.addAction(frames_action)
+
         # Window dimensions
         geometry = qApp.desktop().availableGeometry(self)
 
@@ -194,10 +199,19 @@ class MainWindow(QMainWindow):
             if choice == QMessageBox.Yes:
                 self.frame_processor.save_to_disk()
                 try:
+                    # self.setCentralWidget(QLabel("Extracting images from video, please wait"))
                     self.frame_processor.next_directory()
                 except IndexError:
                     log.info("Finished all directories")
-                    self.setCentralWidget(QLabel("All directories processed"))
+                    msg = QMessageBox()
+                    msg.setWindowTitle("Finished all directories")
+                    msg.setText("There are no unprocessed directories left")
+                    msg.setIcon(QMessageBox.Question)
+                    msg.setStandardButtons(QMessageBox.Ok)
+                    msg.setDefaultButton(QMessageBox.Ok)
+                    choice = msg.exec_()
+                    if choice == QMessageBox.Ok:
+                        self.close()
 
                 # Off by one error?
                 _ = self.frame_processor.next()
@@ -228,4 +242,7 @@ class MainWindow(QMainWindow):
         Abstract frame_processor
         """
         self.frame_processor.save(label)
+
+    def extract_frames_for_all_dirs(self):
+        self.frame_processor.extract_frames_for_all_dirs()
 
