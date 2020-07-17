@@ -189,11 +189,13 @@ class FrameProcessor:
 
         for path in dirs_paths:
             # Frames directory has name of video minus extension
+            next_frame_path = ""
             try:
                 next_frame_path = glob.glob(f"{path}/{frame_number}*")[0]
             except IndexError:
-                return []
-          
+                pass
+                # return []
+
             frames_paths.append(next_frame_path)
 
         log.debug(f"Next frames are at {frames_paths}")
