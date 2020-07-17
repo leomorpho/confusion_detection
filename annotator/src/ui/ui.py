@@ -144,6 +144,7 @@ class MainWindow(QMainWindow):
         self.showMaximized()
         self.next_frame()
 
+
     def keyPressEvent(self, event):
 
 
@@ -198,12 +199,15 @@ class MainWindow(QMainWindow):
                     log.info("Finished all directories")
                     self.setCentralWidget(QLabel("All directories processed"))
 
+                # Off by one error?
                 _ = self.frame_processor.next()
+                frames_paths = self.frame_processor.next()
             if choice == QMessageBox.No:
                 # Undo next frame
                 _ = self.frame_processor.prev()
                 pass
-        else:
+
+        if frames_paths:
             # Update UI
             self.central_widget.update_images(frames_paths)
 
