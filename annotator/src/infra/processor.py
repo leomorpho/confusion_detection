@@ -4,6 +4,7 @@ import sys
 import os
 import subprocess
 import shlex
+import json
 from typing import List
 from src.infra.logger import log
 
@@ -63,10 +64,21 @@ class FrameProcessor:
 
     def save(self, label: str):
         """
-        Save the label for a frame
+        Save the label for a frame. This method does not save to disk.
         """
-        self.results[self.curr_frame] = label
-        print(self.results)
+        # TODO: off by one error somewhere. I must be increasing the curr_frame counter
+        # somewhere it should not be increased.
+        self.results[self.curr_frame - 1] = label
+
+    def save_to_disk(self):
+        """
+        Persist results to disk
+        """
+
+        filename = self.curr_dir.split("/")[-1].split(".")[0]
+        result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
+        with open(result_path, "w+") as f:
+            json.dump(self.results, f)
 
     def next(self) -> [List[str], bool]:
         """
@@ -74,8 +86,6 @@ class FrameProcessor:
 
         :return: true if next frame is from a new directory from the queue
         """
-        is_new_dir = False
-
         # If just starting up, pick first directory
         if not self.curr_dir:
             self.curr_dir = self.queue.pop(0)
@@ -83,38 +93,17 @@ class FrameProcessor:
         log.debug(f"current directory: {self.curr_dir}")
 
         frames = self.next_frames(self.curr_dir, self.curr_frame)
+        log.debug(f"frames {frames}")
 
-        if not frames:
-            # Load next directory and extract images for directory coming
-            # after this one (ffmpeg takes some time)
-            try:
-                self.curr_dir = self.queue.pop()
-            except IndexError:
-                return [], False
+        self.curr_frame += 1
 
-            log.debug(f"New current directory is {self.curr_dir}")
-
-            # Extract frames from all videos
-            video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
-            for video_path in video_paths:
-                # Extract frames to sibling directory of video (place dir next to vid)
-                self.extract_all_frames_from_video(video_path)
-
-            is_new_dir = True
-
-            # Reset results dictionnary
-            self.results = dict()
-
-            frames = self.next_frames(self.curr_dir, self.curr_frame)
-        else:
-            self.curr_frame += 1
-
-        return frames, is_new_dir
+        return frames
 
     def prev(self) -> [List[str]]:
         """
         Load prev frame and if no prev frame, return empty list
         """
+
 
         # If there is no prev frame
         if self.curr_frame == 1:
@@ -134,6 +123,26 @@ class FrameProcessor:
             frames_paths.append(prev_frame_path)
 
         return frames_paths
+
+    def next_directory(self):
+        # Load next directory and extract images for directory coming
+        # after this one (ffmpeg takes some time)
+        log.info("Loading next directory")
+
+        # Do not catch exception here, parent will catch it
+        self.curr_dir = self.queue.pop()
+
+        log.info(f"New current directory is {self.curr_dir}")
+
+        # Extract frames from all videos
+        video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
+        for video_path in video_paths:
+            # Extract frames to sibling directory of video (place dir next to vid)
+            self.extract_all_frames_from_video(video_path)
+
+        # Reset results dictionnary
+        self.results = dict()
+        self.curr_frame = 0
 
     @staticmethod
     def extract_all_frames_from_video(video_path):
@@ -180,7 +189,11 @@ class FrameProcessor:
 
         for path in dirs_paths:
             # Frames directory has name of video minus extension
-            next_frame_path = f"{path}/{frame_number}.jpeg"
+            try:
+                next_frame_path = glob.glob(f"{path}/{frame_number}*")[0]
+            except IndexError:
+                return []
+          
             frames_paths.append(next_frame_path)
 
         log.debug(f"Next frames are at {frames_paths}")
@@ -205,3 +218,16 @@ class FrameProcessor:
         Return the paths to every video in a directory
         """
         return [f"{path}/{i}" for i in os.listdir(path) if os.path.isdir(f"{path}/{i}")]
+
+    def extract_frames_for_all_dirs(self):
+        # Add current directory to queue
+        dir_list = self.queue
+        dir_list.append(self.curr_dir)
+
+        for directory in dir_list:
+            video_paths = self.get_all_video_paths_in_dir(directory)
+            for video_path in video_paths:
+                # Extract frames to sibling directory of video (place dir next to vid)
+                self.extract_all_frames_from_video(video_path)
+        log.info("Finished extracting frames for all videos from all directories")
+

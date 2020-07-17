@@ -86,8 +86,9 @@ class Buttons(QWidget):
         hbox.addWidget(QLabel("(3) Ambivalent"))
         hbox.addWidget(QLabel("(4) Likely"))
         hbox.addWidget(QLabel("(5) Confused"))
-        hbox.addWidget(QLabel("(R key) previous"))
-        hbox.addWidget(QLabel("(L key) next"))
+        hbox.addWidget(QLabel("(R arrow) previous"))
+        hbox.addWidget(QLabel("(L arrow) next"))
+    
         self.setLayout(hbox)
 
 
@@ -135,19 +136,20 @@ class MainWindow(QMainWindow):
         exit_action.triggered.connect(self.close)
         self.file_menu.addAction(exit_action)
 
+        # Extract frames QAction
+        frames_action = QAction("Extract all frames", self)
+        frames_action.triggered.connect(self.extract_frames_for_all_dirs)
+        self.file_menu.addAction(frames_action)
+
         # Window dimensions
         geometry = qApp.desktop().availableGeometry(self)
 
         self.central_widget = CentralWidget()
 
-        # label = QLabel()
-        # im = QPixmap('./0001.jpeg')
-        # label.setPixmap(im)
-        # self.setCentralWidget(label)
-
         self.setCentralWidget(self.central_widget)
         self.showMaximized()
         self.next_frame()
+
 
     def keyPressEvent(self, event):
 
@@ -181,26 +183,48 @@ class MainWindow(QMainWindow):
 
     def next_frame(self):
         # Load next frame
-        frames_paths, is_new_dir = self.frame_processor.next()
+        frames_paths = self.frame_processor.next()
 
-        if frames_paths == []:
-            widget = QLabel("All directories processed")
-            self.setCentralWidget(widget)
-            log.info("All directories processed")
-            return
+        if not frames_paths:
+            msg = QMessageBox()
+            msg.setWindowTitle("Finished current directory")
+            msg.setText("Save and go on to next directory?")
+            msg.setIcon(QMessageBox.Question)
+            msg.setStandardButtons(QMessageBox.No | QMessageBox.Yes)
+            msg.setDefaultButton(QMessageBox.No)
+            msg.setDetailedText("Save and go to next directoryi (YES), " +
+                    "or stay in current directory (NO).")
 
-        if is_new_dir:
-            log.debug(
-                "Press \"Enter\" to load next directory. ",
-                "Press \"Escape\" to save and exit the program")
-            if event.key() == Qt.Key_Enter:
-                self.showing_frames = True
-                # continue
-            if event.key() == Qt.Key_Escape:
-                self.close()
+            choice = msg.exec_()
 
-        # Update UI
-        self.central_widget.update_images(frames_paths)
+            if choice == QMessageBox.Yes:
+                self.frame_processor.save_to_disk()
+                try:
+                    # self.setCentralWidget(QLabel("Extracting images from video, please wait"))
+                    self.frame_processor.next_directory()
+                except IndexError:
+                    log.info("Finished all directories")
+                    msg = QMessageBox()
+                    msg.setWindowTitle("Finished all directories")
+                    msg.setText("There are no unprocessed directories left")
+                    msg.setIcon(QMessageBox.Question)
+                    msg.setStandardButtons(QMessageBox.Ok)
+                    msg.setDefaultButton(QMessageBox.Ok)
+                    choice = msg.exec_()
+                    if choice == QMessageBox.Ok:
+                        self.close()
+
+                # Off by one error?
+                _ = self.frame_processor.next()
+                frames_paths = self.frame_processor.next()
+            if choice == QMessageBox.No:
+                # Undo next frame
+                _ = self.frame_processor.prev()
+                pass
+
+        if frames_paths:
+            # Update UI
+            self.central_widget.update_images(frames_paths)
 
     def prev_frame(self):
         """
@@ -210,7 +234,9 @@ class MainWindow(QMainWindow):
         frames = self.frame_processor.prev()
 
         if frames:
-            log.info(f"prev: {frames}")
+
+            log.debug(f"prev: {frames}")
+
             # Update UI
             self.central_widget.update_images(frames)
 
@@ -220,3 +246,5 @@ class MainWindow(QMainWindow):
         """
         self.frame_processor.save(label)
 
+    def extract_frames_for_all_dirs(self):
+        self.frame_processor.extract_frames_for_all_dirs()
