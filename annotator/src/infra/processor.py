@@ -66,7 +66,9 @@ class FrameProcessor:
         """
         Save the label for a frame. This method does not save to disk.
         """
-        self.results[self.curr_frame] = label
+        # TODO: off by one error somewhere. I must be increasing the curr_frame counter
+        # somewhere it should not be increased.
+        self.results[self.curr_frame - 1] = label
 
     def save_to_disk(self):
         """
@@ -216,7 +218,11 @@ class FrameProcessor:
         return [f"{path}/{i}" for i in os.listdir(path) if os.path.isdir(f"{path}/{i}")]
 
     def extract_frames_for_all_dirs(self):
-        for directory in self.queue:
+        # Add current directory to queue
+        dir_list = self.queue
+        dir_list.append(self.curr_dir)
+
+        for directory in dir_list:
             video_paths = self.get_all_video_paths_in_dir(directory)
             for video_path in video_paths:
                 # Extract frames to sibling directory of video (place dir next to vid)
