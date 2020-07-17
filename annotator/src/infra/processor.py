@@ -121,10 +121,8 @@ class FrameProcessor:
     def next_directory(self):
         # Load next directory and extract images for directory coming
         # after this one (ffmpeg takes some time)
-        try:
-            self.curr_dir = self.queue.pop()
-        except IndexError:
-            return [], False
+        log.info("Loading next directory")
+        self.curr_dir = self.queue.pop()
 
         log.info(f"New current directory is {self.curr_dir}")
 
@@ -136,8 +134,6 @@ class FrameProcessor:
 
         # Reset results dictionnary
         self.results = dict()
-
-        frames = self.next_frames(self.curr_dir, self.curr_frame)
 
     @staticmethod
     def extract_all_frames_from_video(video_path):

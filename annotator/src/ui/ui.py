@@ -185,14 +185,20 @@ class MainWindow(QMainWindow):
             msg.setIcon(QMessageBox.Question)
             msg.setStandardButtons(QMessageBox.No | QMessageBox.Yes)
             msg.setDefaultButton(QMessageBox.No)
-            msg.setDetailedText("If you click YES, the labels will be saved and the next directory will be loaded.")
+            msg.setDetailedText("Save and go to next directoryi (YES), " +
+                    "or stay in current directory (NO).")
 
             choice = msg.exec_()
 
             if choice == QMessageBox.Yes:
                 self.frame_processor.save_to_disk()
-                self.frame_processor.next_directory()
-                frames_paths = self.frame_processor.next()
+                try:
+                    self.frame_processor.next_directory()
+                except IndexError:
+                    log.info("Finished all directories")
+                    self.setCentralWidget(QLabel("All directories processed"))
+
+                _ = self.frame_processor.next()
             if choice == QMessageBox.No:
                 # Undo next frame
                 _ = self.frame_processor.prev()
