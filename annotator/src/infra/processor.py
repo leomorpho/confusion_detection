@@ -14,11 +14,13 @@ PROCESSED = "processed"
 # means there are a maximum of 1000 frames per video
 MAX_DIGITS_FRAME_NAME = 4
 
+
 class FrameProcessor:
     """
     Searches the import and processed data paths. Any single directory in
     the import path which has not been processed yet is added to the queue.
     """
+
     def __init__(self, data_path):
         self.data_path = data_path
 
@@ -56,11 +58,15 @@ class FrameProcessor:
         # Frame counter
         self.curr_frame = 1
 
+        # Results dictionnary, where each label for each frame is stored
+        self.results = dict()
+
     def save(self, label: str):
         """
         Save the label for a frame
         """
-        pass
+        self.results[self.curr_frame] = label
+        print(self.results)
 
     def next(self) -> [List[str], bool]:
         """
@@ -95,12 +101,39 @@ class FrameProcessor:
                 self.extract_all_frames_from_video(video_path)
 
             is_new_dir = True
+
+            # Reset results dictionnary
+            self.results = dict()
+
             frames = self.next_frames(self.curr_dir, self.curr_frame)
         else:
             self.curr_frame += 1
 
         return frames, is_new_dir
 
+    def prev(self) -> [List[str]]:
+        """
+        Load prev frame and if no prev frame, return empty list
+        """
+
+        # If there is no prev frame
+        if self.curr_frame == 1:
+            return []
+
+        self.curr_frame -= 1
+        frames_paths = []
+
+        dirs_paths = self.get_all_dir_paths_in_dir(self.curr_dir)
+
+        # Pad next frame with zeroes so it's MAX_DIGITS_FRAME_NAME digits wide
+        frame_number = f"{self.curr_frame}".zfill(MAX_DIGITS_FRAME_NAME)
+
+        for path in dirs_paths:
+            # Frames directory has name of video minus extension
+            prev_frame_path = f"{path}/{frame_number}.jpeg"
+            frames_paths.append(prev_frame_path)
+
+        return frames_paths
 
     @staticmethod
     def extract_all_frames_from_video(video_path):
@@ -117,7 +150,8 @@ class FrameProcessor:
         parent_dir = video_path.split("/")
         parent_dir = "/".join(parent_dir[:-1])
         frames_dir_path = f"{parent_dir}/{dir_name}"
-        log.debug(f"Creating new directory {frames_dir_path} for video {video_path}")
+        log.debug(
+            f"Creating new directory {frames_dir_path} for video {video_path}")
 
         if os.path.exists(frames_dir_path):
             num_images = len(glob.glob(f"{frames_dir_path}/*"))
@@ -146,12 +180,11 @@ class FrameProcessor:
 
         for path in dirs_paths:
             # Frames directory has name of video minus extension
-            next_frame_name = f"{path}/{frame_number}.jpeg"
-            frames_paths.append(next_frame_name)
+            next_frame_path = f"{path}/{frame_number}.jpeg"
+            frames_paths.append(next_frame_path)
 
         log.debug(f"Next frames are at {frames_paths}")
         return frames_paths
-
 
     @staticmethod
     def get_all_video_paths_in_dir(path) -> List[str]:
