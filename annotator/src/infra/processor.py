@@ -86,16 +86,13 @@ class FrameProcessor:
 
         :return: true if next frame is from a new directory from the queue
         """
-        # If just starting up, pick first directory
-        if not self.curr_dir:
-            self.curr_dir = self.queue.pop(0)
-
         log.debug(f"current directory: {self.curr_dir}")
 
         frames = self.next_frames(self.curr_dir, self.curr_frame)
-        log.debug(f"frames {frames}")
+        log.debug(f"number of frames: {len(frames)}, current frame: {self.curr_frame}")
 
-        self.curr_frame += 1
+        if len(frames) > 0:
+            self.curr_frame += 1
 
         return frames
 
@@ -104,7 +101,6 @@ class FrameProcessor:
         Load prev frame and if no prev frame, return empty list
         """
 
-
         # If there is no prev frame
         if self.curr_frame == 1:
             return []
@@ -112,7 +108,6 @@ class FrameProcessor:
         self.curr_frame -= 1
         frames_paths = []
 
-        log.info(f"queue: {self.queue}")
         dirs_paths = self.get_all_dir_paths_in_dir(self.curr_dir)
 
         # Pad next frame with zeroes so it's MAX_DIGITS_FRAME_NAME digits wide
@@ -121,7 +116,8 @@ class FrameProcessor:
         for path in dirs_paths:
             # Frames directory has name of video minus extension
             prev_frame_path = f"{path}/{frame_number}.jpeg"
-            frames_paths.append(prev_frame_path)
+            if os.path.exists(prev_frame_path):
+                frames_paths.append(prev_frame_path)
 
         return frames_paths
 
@@ -181,7 +177,6 @@ class FrameProcessor:
         Return paths to next frames and current frame count
         """
         dirs_paths = cls.get_all_dir_paths_in_dir(parent_dir)
-        log.debug(f"Dirs of extracted frames: {dirs_paths}")
 
         frames_paths = []
 
@@ -194,12 +189,13 @@ class FrameProcessor:
             try:
                 next_frame_path = glob.glob(f"{path}/{frame_number}*")[0]
             except IndexError:
-                pass
-                # return []
+                # Try to get all the frames from a folder, even if for some
+                # videos the frames ran out.
+                next_frame_path = None
 
-            frames_paths.append(next_frame_path)
+            if next_frame_path:
+                frames_paths.append(next_frame_path)
 
-        log.debug(f"Next frames are at {frames_paths}")
         return frames_paths
 
     @staticmethod

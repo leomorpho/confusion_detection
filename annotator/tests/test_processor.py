@@ -8,10 +8,76 @@ log.setLevel(logging.DEBUG)
 
 TESTDATA = "testdata"
 
+
 def test_frame_processor_creation():
-    frame_processor = FrameProcessor(f"{TESTDATA}/singledir")
-    assert(frame_processor.queue == [])
-    assert(frame_processor.curr_dir == 'testdata/singledir/raw/2019-10-29-14-21-35.bag')
+    TESTDIR = f"{TESTDATA}/simplecase"
+    fp = FrameProcessor(TESTDIR)
+    assert(fp.queue == ['testdata/simplecase/raw/2019-10-29-14-21-36.bag'])
+    assert(fp.curr_dir == f'{TESTDIR}/raw/2019-10-29-14-21-35.bag')
+    assert(fp.curr_frame == 1)
+
+    # Go all the way to the end of the frames
+    assert(set(fp.next()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
+
+    assert(set(fp.next()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0002.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0002.jpeg'})
+
+    assert(set(fp.next()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0003.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0003.jpeg'})
+
+    assert(set(fp.next()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0004.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0004.jpeg'})
+
+    assert(set(fp.next()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0005.jpeg'})
+
+    # next should be idempotent
+    assert(fp.next() == [])
+    assert(fp.next() == [])
+    assert(fp.next() == [])
+
+
+    # Go back all the way to the birth of Jesus
+    assert(set(fp.prev()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0005.jpeg'})
+
+    assert(set(fp.prev()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0004.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0004.jpeg'})
+
+    assert(set(fp.prev()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0003.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0003.jpeg'})
+
+    assert(set(fp.prev()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0002.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0002.jpeg'})
+
+    assert(set(fp.prev()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
+
+    # Should be idempotent
+    assert(fp.prev() == [])
+    assert(fp.prev() == [])
+    assert(fp.prev() == [])
+
+    assert(set(fp.next()) == {
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
+        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
+
+    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0002.jpeg'])
+    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0003.jpeg'])
+    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0004.jpeg'])
+    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0005.jpeg'])
+    # assert(fp.next() == [])
+    # assert(fp.next() == [])
+    # assert(fp.prev() == ['{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0005.jpeg'])
 
 # class InputOutputCase():
 #     """Represents a test case with input_val and expected expected_output"""
