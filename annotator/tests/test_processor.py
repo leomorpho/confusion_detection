@@ -71,13 +71,6 @@ def test_frame_processor_creation():
         f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
         f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
 
-    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0002.jpeg'])
-    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0003.jpeg'])
-    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0004.jpeg'])
-    # assert(fp.next() == [f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0005.jpeg'])
-    # assert(fp.next() == [])
-    # assert(fp.next() == [])
-    # assert(fp.prev() == ['{TESTDIR}/raw/2019-10-29-14-21-35.bag/pepper_robot_camera_front_camera_image_raw/0005.jpeg'])
 
 # class InputOutputCase():
 #     """Represents a test case with input_val and expected expected_output"""

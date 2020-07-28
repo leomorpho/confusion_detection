@@ -40,5 +40,18 @@ Note that frames get extracted one video at a time. Aka, if you are labeling a d
 ![Screen Shot 2020-07-17 at 5.15.58 PM](README.assets/Screen%20Shot%202020-07-17%20at%205.15.58%20PM.png)
 
 ### Issues
+
 The robot camera has a higher frame rate than the room cameras. This makes the robot frames run too fast compared to the room cameras. We can fix that in processing later.
+
+### Tests
+
+From within the `annotator` package, you can run the following commands:
+
+```bash
+# Run whole test suite
+pytest
+
+# See test coverage
+pytest --cov=src tests/
+```
 

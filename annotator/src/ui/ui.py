@@ -36,7 +36,7 @@ class Images(QWidget):
         self.setLayout(grid)
 
     def update_images(self, paths):
-        if os.path.exists(paths[0]):
+        if len(paths) >= 1 and os.path.exists(paths[0]):
             im1 = QPixmap(paths[0])
             im1 = im1.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label1.setPixmap(im1)
@@ -45,7 +45,7 @@ class Images(QWidget):
             im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label1.setPixmap(im)
 
-        if os.path.exists(paths[1]):
+        if len(paths) >= 2 and os.path.exists(paths[1]):
             im2 = QPixmap(paths[1])
             im2 = im2.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label2.setPixmap(im2)
@@ -54,7 +54,7 @@ class Images(QWidget):
             im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label2.setPixmap(im)
 
-        if os.path.exists(paths[2]):
+        if len(paths) >= 3 and os.path.exists(paths[2]):
             im3 = QPixmap(paths[2])
             im3 = im3.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label3.setPixmap(im3)
@@ -63,7 +63,7 @@ class Images(QWidget):
             im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label3.setPixmap(im)
 
-        if os.path.exists(paths[3]):
+        if len(paths) >= 4 and os.path.exists(paths[3]):
             im4 = QPixmap(paths[3])
             im4 = im4.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label4.setPixmap(im4)
@@ -96,19 +96,26 @@ class CentralWidget(QWidget):
     def __init__(self, images_paths=None):
         super().__init__()
         self.image_widget = Images(images_paths)
+        self.label_widget = QLabel()
         buttons_widget = Buttons()
 
         vbox = QVBoxLayout(self)
 
+        vbox.addWidget(self.label_widget)
         vbox.addWidget(self.image_widget)
         vbox.addWidget(buttons_widget)
         self.setLayout(vbox)
+        self.num_cameras = None
 
     def update_images(self, images_paths=None):
         """
         Updates the images in the UI
         """
+        # Keep track of max number of cameras
+        if not self.num_cameras:
+            self.num_cameras = len(images_paths)
         self.image_widget.update_images(images_paths)
+        self.label_widget.setText(f"Showing frames form {len(images_paths)}/{self.num_cameras} cameras")
 
 
 class MainWindow(QMainWindow):
