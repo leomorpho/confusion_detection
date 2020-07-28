@@ -2,7 +2,10 @@
 
 ## Install required packages
 `pip install -r requirements.txt`
-`brew install ffmpeg`
+
+Install `ffmpeg`: 
+    * MacOS: `brew install ffmpeg`
+    * Ubuntu/Debian: `sudo apt install ffmpeg`
 
 ## Annotation tool
 You will need the `data` directory to have the `raw` directory filled with the video data.
