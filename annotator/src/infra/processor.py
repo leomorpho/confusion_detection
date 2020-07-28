@@ -22,7 +22,7 @@ class FrameProcessor:
     the import path which has not been processed yet is added to the queue.
     """
 
-    def __init__(self, data_path):
+    def __init__(self, data_path, processed_path=PROCESSED):
         self.data_path = data_path
 
         if not os.path.exists(data_path):
@@ -31,11 +31,11 @@ class FrameProcessor:
         if not os.path.exists(f"{data_path}/{RAW}"):
             raise Exception("\"raw\" data path does not exist")
 
-        if not os.path.exists(f"{data_path}/{PROCESSED}"):
-            os.mkdir(f"{data_path}/{PROCESSED}")
+        if not os.path.exists(f"{data_path}/{processed_path}"):
+            os.mkdir(f"{data_path}/{processed_path}")
 
         raw_dirs = glob.glob(f"{data_path}/{RAW}/*")
-        processed_dirs = glob.glob(f"{data_path}/{PROCESSED}/*")
+        processed_dirs = glob.glob(f"{data_path}/{processed_path}/*")
 
         self.queue = raw_dirs
         log.info(f"Queue length: {len(self.queue)}")
@@ -54,7 +54,7 @@ class FrameProcessor:
         self.directory_processed = False
 
         # Keep track of current directory of raw data
-        self.curr_dir = None
+        self.curr_dir = self.queue.pop()
 
         # Frame counter
         self.curr_frame = 1
@@ -112,6 +112,7 @@ class FrameProcessor:
         self.curr_frame -= 1
         frames_paths = []
 
+        log.info(f"queue: {self.queue}")
         dirs_paths = self.get_all_dir_paths_in_dir(self.curr_dir)
 
         # Pad next frame with zeroes so it's MAX_DIGITS_FRAME_NAME digits wide

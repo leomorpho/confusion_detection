@@ -88,14 +88,13 @@ class Buttons(QWidget):
         hbox.addWidget(QLabel("(5) Confused"))
         hbox.addWidget(QLabel("(R arrow) previous"))
         hbox.addWidget(QLabel("(L arrow) next"))
-    
+
         self.setLayout(hbox)
 
 
 class CentralWidget(QWidget):
     def __init__(self, images_paths=None):
         super().__init__()
-        # self.update_images(images_paths)
         self.image_widget = Images(images_paths)
         buttons_widget = Buttons()
 
