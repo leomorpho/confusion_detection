@@ -2,6 +2,7 @@
 
 ## Install required packages
 `pip install -r requirements.txt`
+`brew install ffmpeg`
 
 ## Annotation tool
 You will need the `data` directory to have the `raw` directory filled with the video data.
@@ -15,7 +16,8 @@ You will need the `data` directory to have the `raw` directory filled with the v
 ```
 
 ### Start annotation tool
-`python annotator/main.py`
+`cd annotator`
+`python3 main.py`
 
 Note that frames get extracted one video at a time. Aka, if you are labeling a directory containing videos in it, only these videos will be extracted. I wanted to extract one in advance in the background (on a different thread) but it's too complicated and would require too much time from me. I added an option in the File menu to extract all frames from all directories. I recommend you do that first. It will take forever, the app will probably hang (and unfortunately giving you no feedback...), but look in the terminal and you will see it's doing stuff. The advantage is you won't have to wait later when cycling across all directories..
 
