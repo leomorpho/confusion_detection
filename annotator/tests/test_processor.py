@@ -12,7 +12,7 @@ TESTDATA = "testdata"
 def test_frame_processor_creation():
     TESTDIR = f"{TESTDATA}/simplecase"
     fp = FrameProcessor(TESTDIR)
-    assert(fp.queue == ['testdata/simplecase/raw/2019-10-29-14-21-36.bag'])
+    assert(set(fp.queue) == set(['testdata/simplecase/raw/2019-10-29-14-21-37.bag', 'testdata/simplecase/raw/2019-10-29-14-21-36.bag']))
     assert(fp.curr_dir == f'{TESTDIR}/raw/2019-10-29-14-21-35.bag')
     assert(fp.curr_frame == 1)
 
@@ -82,4 +82,9 @@ def test_next_directory():
     assert(fp.curr_frame == 1)
 
     fp.next_directory(extract_frames=False)
+    assert(fp.curr_dir == "testdata/simplecase/raw/2019-10-29-14-21-37.bag")
+    assert(fp.curr_frame == 1)
+
+    fp.next_directory(extract_frames=False)
     assert(fp.curr_dir == None)
+    assert(fp.curr_frame == 1)
