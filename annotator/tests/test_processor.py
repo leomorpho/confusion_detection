@@ -41,7 +41,6 @@ def test_frame_processor_creation():
     assert(fp.next() == [])
     assert(fp.next() == [])
 
-
     # Go back all the way to the birth of Jesus
     assert(set(fp.prev()) == {
         f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0005.jpeg'})
@@ -70,6 +69,15 @@ def test_frame_processor_creation():
     assert(set(fp.next()) == {
         f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
         f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
+
+
+def test_next_directory():
+    TESTDIR = f"{TESTDATA}/simplecase"
+    fp = FrameProcessor(TESTDIR)
+    assert(fp.curr_dir == "testdata/simplecase/raw/2019-10-29-14-21-35.bag")
+    fp.next_directory(extract_frames=False)
+    assert(fp.curr_dir == "testdata/simplecase/raw/2019-10-29-14-21-36.bag")
+    assert(fp.curr_frame == 1)
 
 
 # class InputOutputCase():

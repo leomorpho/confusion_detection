@@ -50,9 +50,6 @@ class FrameProcessor:
                 if processed_dir_name == raw_dir_name:
                     queue.remove(processed_dir_name)
 
-        # Keep track if current dir was processed to completion
-        self.directory_processed = False
-
         # Keep track of current directory of raw data
         self.curr_dir = self.queue.pop()
 
@@ -77,22 +74,26 @@ class FrameProcessor:
 
         filename = self.curr_dir.split("/")[-1].split(".")[0]
         result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
-        with open(result_path, "w+") as f:
+        with open(result_path, "w") as f:
             json.dump(self.results, f)
 
     def next(self) -> [List[str], bool]:
         """
         Load next frame and if no next frames, load next directory.
+        Save on every frame.
 
         :return: true if next frame is from a new directory from the queue
         """
         log.debug(f"current directory: {self.curr_dir}")
 
         frames = self.next_frames(self.curr_dir, self.curr_frame)
-        log.debug(f"number of frames: {len(frames)}, current frame: {self.curr_frame}")
+        log.debug(
+            f"number of frames: {len(frames)}, current frame: {self.curr_frame}")
 
         if len(frames) > 0:
             self.curr_frame += 1
+
+        self.save_to_disk()
 
         return frames
 
@@ -121,25 +122,28 @@ class FrameProcessor:
 
         return frames_paths
 
-    def next_directory(self):
+    def next_directory(self, extract_frames=True):
+        """
+        :param extract_frames: can turn off for testing
+        """
         # Load next directory and extract images for directory coming
         # after this one (ffmpeg takes some time)
         log.info("Loading next directory")
 
         # Do not catch exception here, parent will catch it
         self.curr_dir = self.queue.pop()
+        self.curr_frame = 1
+        self.results = dict()
 
         log.info(f"New current directory is {self.curr_dir}")
 
         # Extract frames from all videos
         video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
-        for video_path in video_paths:
-            # Extract frames to sibling directory of video (place dir next to vid)
-            self.extract_all_frames_from_video(video_path)
 
-        # Reset results dictionnary
-        self.results = dict()
-        self.curr_frame = 0
+        if extract_frames:
+            for video_path in video_paths:
+                # Extract frames to sibling directory of video (place dir next to vid)
+                self.extract_all_frames_from_video(video_path)
 
     @staticmethod
     def extract_all_frames_from_video(video_path):
@@ -229,4 +233,3 @@ class FrameProcessor:
                 # Extract frames to sibling directory of video (place dir next to vid)
                 self.extract_all_frames_from_video(video_path)
         log.info("Finished extracting frames for all videos from all directories")
-
