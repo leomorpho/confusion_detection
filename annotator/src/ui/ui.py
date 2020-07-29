@@ -81,11 +81,9 @@ class Buttons(QWidget):
     def __init__(self):
         super().__init__()
         hbox = QHBoxLayout(self)
-        hbox.addWidget(QLabel("(1) No"))
-        hbox.addWidget(QLabel("(2) Unlikely"))
-        hbox.addWidget(QLabel("(3) Ambivalent"))
-        hbox.addWidget(QLabel("(4) Likely"))
-        hbox.addWidget(QLabel("(5) Confused"))
+        hbox.addWidget(QLabel("(1) Not confused"))
+        hbox.addWidget(QLabel("(2) Uncertain"))
+        hbox.addWidget(QLabel("(3) Confused"))
         hbox.addWidget(QLabel("(R arrow) previous"))
         hbox.addWidget(QLabel("(L arrow) next"))
 
@@ -174,12 +172,8 @@ class MainWindow(QMainWindow):
         elif event.key() == Qt.Key_1:
             label = "not confused"
         elif event.key() == Qt.Key_2:
-            label = "probably not confused"
-        elif event.key() == Qt.Key_3:
             label = "uncertain"
-        elif event.key() == Qt.Key_4:
-            label = "probably confused"
-        elif event.key() == Qt.Key_5:
+        elif event.key() == Qt.Key_3:
             label = "confused"
         elif event.key() == Qt.Key_Left:
             previous_frame = True
