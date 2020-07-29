@@ -122,16 +122,23 @@ class FrameProcessor:
 
         return frames_paths
 
-    def next_directory(self, extract_frames=True):
+    def next_directory(self, extract_frames=True) -> bool:
         """
         :param extract_frames: can turn off for testing
+
+        :return: whether there is a next directory or not
         """
         # Load next directory and extract images for directory coming
         # after this one (ffmpeg takes some time)
         log.info("Loading next directory")
 
         # Do not catch exception here, parent will catch it
-        self.curr_dir = self.queue.pop()
+        try:
+            self.curr_dir = self.queue.pop()
+        except IndexError:
+            self.curr_dir = None
+            return False
+
         self.curr_frame = 1
         self.results = dict()
 
@@ -142,8 +149,10 @@ class FrameProcessor:
 
         if extract_frames:
             for video_path in video_paths:
-                # Extract frames to sibling directory of video (place dir next to vid)
+                # Extract frames to sibling directory of video
+                # (place dir next to vid)
                 self.extract_all_frames_from_video(video_path)
+        return True
 
     @staticmethod
     def extract_all_frames_from_video(video_path):

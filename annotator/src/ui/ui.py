@@ -115,7 +115,7 @@ class CentralWidget(QWidget):
         if not self.num_cameras:
             self.num_cameras = len(images_paths)
         self.image_widget.update_images(images_paths)
-        self.label_widget.setText(f"Showing frames form {len(images_paths)}/{self.num_cameras} cameras")
+        self.label_widget.setText(f"Showing frames from {len(images_paths)}/{self.num_cameras} cameras")
 
 
 class MainWindow(QMainWindow):
@@ -197,7 +197,7 @@ class MainWindow(QMainWindow):
             msg.setText("Save and go on to next directory?")
             msg.setIcon(QMessageBox.Question)
             msg.setStandardButtons(QMessageBox.No | QMessageBox.Yes)
-            msg.setDefaultButton(QMessageBox.No)
+            msg.setDefaultButton(QMessageBox.Yes)
             msg.setDetailedText("Save and go to next directoryi (YES), " +
                     "or stay in current directory (NO).")
 
@@ -205,10 +205,9 @@ class MainWindow(QMainWindow):
 
             if choice == QMessageBox.Yes:
                 self.frame_processor.save_to_disk()
-                try:
-                    # self.setCentralWidget(QLabel("Extracting images from video, please wait"))
-                    self.frame_processor.next_directory()
-                except IndexError:
+                next_dir = self.frame_processor.next_directory()
+
+                if not next_dir:
                     log.info("Finished all directories")
                     msg = QMessageBox()
                     msg.setWindowTitle("Finished all directories")
@@ -219,6 +218,7 @@ class MainWindow(QMainWindow):
                     choice = msg.exec_()
                     if choice == QMessageBox.Ok:
                         self.close()
+                        sys.exit(1)
 
                 # Off by one error?
                 _ = self.frame_processor.next()
