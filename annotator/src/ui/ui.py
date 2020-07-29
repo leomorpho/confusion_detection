@@ -96,18 +96,23 @@ class CentralWidget(QWidget):
     def __init__(self, images_paths=None):
         super().__init__()
         self.image_widget = Images(images_paths)
-        self.label_widget = QLabel()
+
+        # Top info is the title of processed folder and the number of
+        # cameras being shown (out of total)
+        self.processed_dir_name = QLabel()
+        self.num_camera_widget = QLabel()
+
         buttons_widget = Buttons()
 
         vbox = QVBoxLayout(self)
-
-        vbox.addWidget(self.label_widget)
+        vbox.addWidget(self.processed_dir_name)
+        vbox.addWidget(self.num_camera_widget)
         vbox.addWidget(self.image_widget)
         vbox.addWidget(buttons_widget)
         self.setLayout(vbox)
         self.num_cameras = None
 
-    def update_images(self, images_paths=None):
+    def update_images(self, images_paths=None, processed_dir=None):
         """
         Updates the images in the UI
         """
@@ -115,7 +120,9 @@ class CentralWidget(QWidget):
         if not self.num_cameras:
             self.num_cameras = len(images_paths)
         self.image_widget.update_images(images_paths)
-        self.label_widget.setText(f"Showing frames from {len(images_paths)}/{self.num_cameras} cameras")
+        self.processed_dir_name.setText(f"Processing: {processed_dir}")
+        self.num_camera_widget.setText(
+            f"Showing frames from {len(images_paths)}/{self.num_cameras} cameras")
 
 
 class MainWindow(QMainWindow):
@@ -156,11 +163,10 @@ class MainWindow(QMainWindow):
         self.showMaximized()
         self.next_frame()
 
-
     def keyPressEvent(self, event):
 
-
         previous_frame = False
+        next_frame = False
         label: str = None
 
         if event.key() == Qt.Key_0:
@@ -169,7 +175,7 @@ class MainWindow(QMainWindow):
             label = "not confused"
         elif event.key() == Qt.Key_2:
             label = "probably not confused"
-        elif event.key() == Qt.Key_3 or event.key() == Qt.Key_Right :
+        elif event.key() == Qt.Key_3:
             label = "uncertain"
         elif event.key() == Qt.Key_4:
             label = "probably confused"
@@ -177,15 +183,18 @@ class MainWindow(QMainWindow):
             label = "confused"
         elif event.key() == Qt.Key_Left:
             previous_frame = True
+        elif event.key() == Qt.Key_Right:
+            next_frame = True
 
         if label:
             log.debug(f"Assigned label: {label}")
             # Save label for current frames
             self.save_frame(label)
             self.next_frame()
-
         elif previous_frame:
             self.prev_frame()
+        elif next_frame:
+            self.next_frame()
 
     def next_frame(self):
         # Load next frame
@@ -199,7 +208,7 @@ class MainWindow(QMainWindow):
             msg.setStandardButtons(QMessageBox.No | QMessageBox.Yes)
             msg.setDefaultButton(QMessageBox.Yes)
             msg.setDetailedText("Save and go to next directoryi (YES), " +
-                    "or stay in current directory (NO).")
+                                "or stay in current directory (NO).")
 
             choice = msg.exec_()
 
@@ -228,7 +237,9 @@ class MainWindow(QMainWindow):
 
         if frames_paths:
             # Update UI
-            self.central_widget.update_images(frames_paths)
+            self.central_widget.update_images(
+                frames_paths,
+                self.frame_processor.curr_dir)
 
     def prev_frame(self):
         """
@@ -242,7 +253,9 @@ class MainWindow(QMainWindow):
             log.debug(f"prev: {frames}")
 
             # Update UI
-            self.central_widget.update_images(frames)
+            self.central_widget.update_images(
+                frames,
+                self.frame_processor.curr_dir)
 
     def save_frame(self, label):
         """

@@ -232,7 +232,12 @@ class FrameProcessor:
         """
         Return the paths to every video in a directory
         """
-        return [f"{path}/{i}" for i in os.listdir(path) if os.path.isdir(f"{path}/{i}")]
+        dirs = []
+        for i in os.listdir(path):
+            if os.path.isdir(f"{path}/{i}") and "pepper" not in i.lower():
+                dirs.append(f"{path}/{i}")
+
+        return dirs
 
     def extract_frames_for_all_dirs(self):
         # Add current directory to queue

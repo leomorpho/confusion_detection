@@ -3,9 +3,9 @@
 ## Install required packages
 `pip install -r requirements.txt`
 
-Install `ffmpeg`: 
-    * MacOS: `brew install ffmpeg`
-    * Ubuntu/Debian: `sudo apt install ffmpeg`
+Install `ffmpeg`:
+* MacOS: `brew install ffmpeg`
+* Ubuntu/Debian: `sudo apt install ffmpeg`
 
 ## Annotation tool
 You will need the `data` directory to have the `raw` directory filled with the video data.
@@ -19,6 +19,9 @@ You will need the `data` directory to have the `raw` directory filled with the v
 ```
 
 ### Start annotation tool
+
+Due to Python's weird import path, the app must be run from within the `annotator` package (see below).
+
 `cd annotator`
 `python3 main.py`
 
@@ -34,16 +37,32 @@ Note that frames get extracted one video at a time. Aka, if you are labeling a d
     * 3: Don't know
     * 4: Likely confused
     * 5: Confused
-* The user can go to the next or previous frame. This does not set the frame to any confusion value.
+* The user can go to the next or previous frame by pressing the left and right arrows. These keys do not set the frame to any confusion value.
 * If the user holds down any of the accepted keys, the images will cycle like a movie.
+* There may be more or less than 4 cameras. However, only 4 can be shown in this implementation. The upper left corner of the app window shows the number of cameras shown at every frame.
+* Data is saved at every frame change.
 
-![Screen Shot 2020-07-17 at 5.15.58 PM](README.assets/Screen%20Shot%202020-07-17%20at%205.15.58%20PM.png)
+![Screen Shot 2020-07-28 at 7.13.54 PM](README.assets/Screen%20Shot%202020-07-28%20at%207.13.54%20PM.png)
 
 ### Issues
 
 The robot camera has a higher frame rate than the room cameras. This makes the robot frames run too fast compared to the room cameras. We can fix that in processing later.
 
-### Tests
+### Development
+
+#### Tests
+
+##### Dummy test data
+
+To run the user interface with dummy test data, simply run the `main.py` with any extra arguments. The following is an example:
+
+```
+python main.py 1
+```
+
+
+
+##### Pytest
 
 From within the `annotator` package, you can run the following commands:
 
