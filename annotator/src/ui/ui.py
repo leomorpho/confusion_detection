@@ -220,8 +220,6 @@ class MainWindow(QMainWindow):
                         self.close()
                         sys.exit(1)
 
-                # Off by one error?
-                _ = self.frame_processor.next()
                 frames_paths = self.frame_processor.next()
             if choice == QMessageBox.No:
                 # Undo next frame

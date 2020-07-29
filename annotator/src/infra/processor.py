@@ -63,7 +63,6 @@ class FrameProcessor:
         """
         Save the label for a frame. This method does not save to disk.
         """
-        # TODO: off by one error somewhere. I must be increasing the curr_frame counter
         # somewhere it should not be increased.
         self.results[self.curr_frame - 1] = label
 
@@ -71,6 +70,10 @@ class FrameProcessor:
         """
         Persist results to disk
         """
+
+        # Don't save if empty
+        if len(self.results) == 0:
+            return
 
         filename = self.curr_dir.split("/")[-1].split(".")[0]
         result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
