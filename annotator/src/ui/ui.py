@@ -124,11 +124,18 @@ class CentralWidget(QWidget):
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, data_path):
+    def __init__(self,
+                 data_path: str,
+                 single_video: bool = False,
+                 random_dir=False):
+
         QMainWindow.__init__(self)
 
+        # If frame rates are inconsistent among videos, use only one video
+        self.single_video = single_video
+
         # Create frame processor
-        self.frame_processor = FrameProcessor(data_path)
+        self.frame_processor = FrameProcessor(data_path, random_dir)
 
         # Initialize all other params
         self.init_widget()
@@ -208,7 +215,8 @@ class MainWindow(QMainWindow):
 
             if choice == QMessageBox.Yes:
                 self.frame_processor.save_to_disk()
-                next_dir = self.frame_processor.next_directory()
+                next_dir = self.frame_processor.next_directory(
+                    single_video=self.single_video)
 
                 if not next_dir:
                     log.info("Finished all directories")

@@ -5,6 +5,7 @@ import os
 import subprocess
 import shlex
 import json
+import random
 from typing import List
 from src.infra.logger import log
 
@@ -22,7 +23,7 @@ class FrameProcessor:
     the import path which has not been processed yet is added to the queue.
     """
 
-    def __init__(self, data_path, processed_path=PROCESSED):
+    def __init__(self, data_path, processed_path=PROCESSED, random_dir=False):
         self.data_path = data_path
 
         if not os.path.exists(data_path):
@@ -38,6 +39,11 @@ class FrameProcessor:
         processed_dirs = glob.glob(f"{data_path}/{processed_path}/*")
 
         self.queue = raw_dirs
+
+        if random_dir:
+            # Shuffle order in place
+            random.shuffle(self.queue)
+
         log.info(f"Queue length: {len(self.queue)}")
         log.info(f"First in queue: {self.queue[:3]}")
 
@@ -78,6 +84,8 @@ class FrameProcessor:
         filename = self.curr_dir.split("/")[-1].split(".")[0]
         result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
         with open(result_path, "w") as f:
+            if self.current_video:
+                json.dumps({"video": self.current_video})
             json.dump(self.results, f)
 
     def next(self) -> [List[str], bool]:
@@ -125,9 +133,12 @@ class FrameProcessor:
 
         return frames_paths
 
-    def next_directory(self, extract_frames=True) -> bool:
+    def next_directory(self, extract_frames=True, single_video=False) -> bool:
         """
         :param extract_frames: can turn off for testing
+        :param single_video: use only 1 video for annotation.
+            Do not use all videos. This is usefull if videos have
+            inconsistent frame rates.
 
         :return: whether there is a next directory or not
         """
@@ -149,6 +160,10 @@ class FrameProcessor:
 
         # Extract frames from all videos
         video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
+
+        if single_video:
+            video_paths = video_paths[0]
+            self.current_video = video_paths
 
         if extract_frames:
             for video_path in video_paths:
