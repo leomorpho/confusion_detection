@@ -162,14 +162,20 @@ class FrameProcessor:
         video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
 
         if single_video:
-            video_paths = video_paths[0]
-            self.current_video = video_paths
+            for path in video_paths:
+                if os.path.exists(path):
+                    self.current_video = video_paths[0]
+                    log.info(f"Single video mode: {self.current_video}")
+                    break
 
         if extract_frames:
-            for video_path in video_paths:
-                # Extract frames to sibling directory of video
-                # (place dir next to vid)
-                self.extract_all_frames_from_video(video_path)
+            if single_video:
+                self.extract_all_frames_from_video(self.current_video)
+            else:
+                for video_path in video_paths:
+                    # Extract frames to sibling directory of video
+                    # (place dir next to vid)
+                    self.extract_all_frames_from_video(video_path)
         return True
 
     @staticmethod
@@ -196,6 +202,7 @@ class FrameProcessor:
                 log.debug("Frames directory for video already exists")
                 return
         else:
+            log.info(frames_dir_path)
             os.makedirs(frames_dir_path)
 
         command = f"ffmpeg -i {video_path} {frames_dir_path}/%{MAX_DIGITS_FRAME_NAME}d.jpeg -n"
@@ -262,6 +269,7 @@ class FrameProcessor:
         for directory in dir_list:
             video_paths = self.get_all_video_paths_in_dir(directory)
             for video_path in video_paths:
-                # Extract frames to sibling directory of video (place dir next to vid)
+                # Extract frames to sibling directory of video (place
+                # dir next to vid)
                 self.extract_all_frames_from_video(video_path)
         log.info("Finished extracting frames for all videos from all directories")

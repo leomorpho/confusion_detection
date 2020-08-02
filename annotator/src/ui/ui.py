@@ -12,8 +12,11 @@ class Images(QWidget):
     """
     Display images in a grid
     """
-
-    def __init__(self, image_paths=None, images_per_row=4):
+    # TODO: for future users, this display logic requires a refactor
+    # to make it more programatic. This was done for speed of implementation
+    # and is not ideal nor clear. Different number of images should be able to show
+    # and adapt dynamically.
+    def __init__(self, image_paths=None):
         super().__init__()
 
         self.img_not_available_path = './media/no_image_available.png'
@@ -36,41 +39,51 @@ class Images(QWidget):
         self.setLayout(grid)
 
     def update_images(self, paths):
-        if len(paths) >= 1 and os.path.exists(paths[0]):
+        if len(paths) == 1 and os.path.exists(paths[0]):
             im1 = QPixmap(paths[0])
             im1 = im1.scaled(self.label1.size(), Qt.KeepAspectRatio)
             self.label1.setPixmap(im1)
-        else:
-            im = QPixmap(self.img_not_available_path)
-            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label1.setPixmap(im)
+            # Remove all other image holders
+            self.label2.setParent(None)
+            self.label3.setParent(None)
+            self.label4.setParent(None)
 
-        if len(paths) >= 2 and os.path.exists(paths[1]):
-            im2 = QPixmap(paths[1])
-            im2 = im2.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label2.setPixmap(im2)
         else:
-            im = QPixmap(self.img_not_available_path)
-            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label2.setPixmap(im)
+            if len(paths) >= 1 and os.path.exists(paths[0]):
+                im1 = QPixmap(paths[0])
+                im1 = im1.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label1.setPixmap(im1)
+            else:
+                im = QPixmap(self.img_not_available_path)
+                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label1.setPixmap(im)
 
-        if len(paths) >= 3 and os.path.exists(paths[2]):
-            im3 = QPixmap(paths[2])
-            im3 = im3.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label3.setPixmap(im3)
-        else:
-            im = QPixmap(self.img_not_available_path)
-            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label3.setPixmap(im)
+            if len(paths) >= 2 and os.path.exists(paths[1]):
+                im2 = QPixmap(paths[1])
+                im2 = im2.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label2.setPixmap(im2)
+            else:
+                im = QPixmap(self.img_not_available_path)
+                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label2.setPixmap(im)
 
-        if len(paths) >= 4 and os.path.exists(paths[3]):
-            im4 = QPixmap(paths[3])
-            im4 = im4.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label4.setPixmap(im4)
-        else:
-            im = QPixmap(self.img_not_available_path)
-            im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label4.setPixmap(im)
+            if len(paths) >= 3 and os.path.exists(paths[2]):
+                im3 = QPixmap(paths[2])
+                im3 = im3.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label3.setPixmap(im3)
+            else:
+                im = QPixmap(self.img_not_available_path)
+                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label3.setPixmap(im)
+
+            if len(paths) >= 4 and os.path.exists(paths[3]):
+                im4 = QPixmap(paths[3])
+                im4 = im4.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label4.setPixmap(im4)
+            else:
+                im = QPixmap(self.img_not_available_path)
+                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
+                self.label4.setPixmap(im)
 
 
 class Buttons(QWidget):
@@ -88,6 +101,7 @@ class Buttons(QWidget):
         hbox.addWidget(QLabel("(L arrow) next"))
 
         self.setLayout(hbox)
+        self.setMaximumHeight(60)
 
 
 class CentralWidget(QWidget):
@@ -98,7 +112,9 @@ class CentralWidget(QWidget):
         # Top info is the title of processed folder and the number of
         # cameras being shown (out of total)
         self.processed_dir_name = QLabel()
+        self.processed_dir_name.setFixedHeight(10)
         self.num_camera_widget = QLabel()
+        self.num_camera_widget.setFixedHeight(10)
 
         buttons_widget = Buttons()
 
@@ -135,7 +151,7 @@ class MainWindow(QMainWindow):
         self.single_video = single_video
 
         # Create frame processor
-        self.frame_processor = FrameProcessor(data_path, random_dir)
+        self.frame_processor = FrameProcessor(data_path, random_dir=random_dir)
 
         # Initialize all other params
         self.init_widget()
