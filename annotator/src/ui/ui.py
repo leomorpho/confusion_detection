@@ -94,11 +94,12 @@ class Buttons(QWidget):
     def __init__(self):
         super().__init__()
         hbox = QHBoxLayout(self)
+        hbox.addWidget(QLabel("(0) No test subject"))
         hbox.addWidget(QLabel("(1) Not confused"))
         hbox.addWidget(QLabel("(2) Uncertain"))
         hbox.addWidget(QLabel("(3) Confused"))
-        hbox.addWidget(QLabel("(R arrow) previous"))
-        hbox.addWidget(QLabel("(L arrow) next"))
+        hbox.addWidget(QLabel("(R arrow) previous (won't affect data)"))
+        hbox.addWidget(QLabel("(L arrow) next (won't affect data)"))
 
         self.setLayout(hbox)
         self.setMaximumHeight(60)

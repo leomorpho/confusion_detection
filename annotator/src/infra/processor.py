@@ -65,6 +65,8 @@ class FrameProcessor:
         # Results dictionnary, where each label for each frame is stored
         self.results = dict()
 
+        self.current_video = None
+
     def save(self, label: str):
         """
         Save the label for a frame. This method does not save to disk.
@@ -85,8 +87,15 @@ class FrameProcessor:
         result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
         with open(result_path, "w") as f:
             if self.current_video:
-                json.dumps({"video": self.current_video})
-            json.dump(self.results, f)
+                # Remove ending ".mp4" extension and starting slash
+                video_name = "".join(self.current_video.split(".")[0:-1])[1:]
+                data = {
+                        "videoFramesPath": video_name,
+                        "labels": self.results
+                        }
+                json.dump(data, f)
+            else:
+                json.dump(self.results, f)
 
     def next(self) -> [List[str], bool]:
         """
