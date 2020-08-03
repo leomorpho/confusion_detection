@@ -41,7 +41,7 @@ class FrameProcessor:
         self.queue = raw_dirs
 
         if random_dir:
-            # Shuffle order in place
+            # Shuffles in place
             random.shuffle(self.queue)
 
         log.info(f"Queue length: {len(self.queue)}")
@@ -97,50 +97,43 @@ class FrameProcessor:
             else:
                 json.dump(self.results, f)
 
-    def next(self) -> [List[str], bool]:
+    def next(self) -> str:
         """
-        Load next frame and if no next frames, load next directory.
+        Load next frame and if no next frame, load next directory.
         Save on every frame.
 
         :return: true if next frame is from a new directory from the queue
         """
         log.debug(f"current directory: {self.curr_dir}")
 
-        frames = self.next_frames(self.curr_dir, self.curr_frame)
-        log.debug(
-            f"number of frames: {len(frames)}, current frame: {self.curr_frame}")
+        frame = self.next_frame(self.curr_dir, self.curr_frame)
 
-        if len(frames) > 0:
+        if frame:
             self.curr_frame += 1
 
         self.save_to_disk()
 
-        return frames
+        return frame
 
-    def prev(self) -> [List[str]]:
+    def prev(self) -> str:
         """
         Load prev frame and if no prev frame, return empty list
         """
-
         # If there is no prev frame
         if self.curr_frame == 1:
-            return []
+            return None
 
         self.curr_frame -= 1
-        frames_paths = []
-
-        dirs_paths = self.get_all_dir_paths_in_dir(self.curr_dir)
 
         # Pad next frame with zeroes so it's MAX_DIGITS_FRAME_NAME digits wide
         frame_number = f"{self.curr_frame}".zfill(MAX_DIGITS_FRAME_NAME)
 
-        for path in dirs_paths:
-            # Frames directory has name of video minus extension
-            prev_frame_path = f"{path}/{frame_number}.jpeg"
-            if os.path.exists(prev_frame_path):
-                frames_paths.append(prev_frame_path)
+        # Frames directory has name of video minus extension
+        prev_frame_path = glob.glob(f"{self.curr_dir}/*{frame_number}*.jpeg")[0]
+        if os.path.exists(prev_frame_path):
+            return prev_frame_path
 
-        return frames_paths
+        return None
 
     def next_directory(self, extract_frames=True, single_video=False) -> bool:
         """
@@ -219,31 +212,25 @@ class FrameProcessor:
         log.debug(f"Extracted frames for video {video_path}")
 
     @classmethod
-    def next_frames(cls, parent_dir, curr_frame_count) -> List[str]:
+    def next_frame(cls, parent_dir, curr_frame_count) -> List[str]:
         """
         Return paths to next frames and current frame count
         """
-        dirs_paths = cls.get_all_dir_paths_in_dir(parent_dir)
-
-        frames_paths = []
 
         # Pad next frame with zeroes so it's MAX_DIGITS_FRAME_NAME digits wide
         frame_number = f"{curr_frame_count}".zfill(MAX_DIGITS_FRAME_NAME)
 
-        for path in dirs_paths:
-            # Frames directory has name of video minus extension
-            next_frame_path = ""
-            try:
-                next_frame_path = glob.glob(f"{path}/{frame_number}*")[0]
-            except IndexError:
-                # Try to get all the frames from a folder, even if for some
-                # videos the frames ran out.
-                next_frame_path = None
+        # Frames directory has name of video minus extension
+        next_frame_path = ""
+        try:
+            next_frame_path = glob.glob(f"{parent_dir}/*{frame_number}*.jpeg")[0]
+        except IndexError:
+            # Try to get all the frames from a folder, even if for some
+            # videos the frames ran out.
+            next_frame_path = None
 
-            if next_frame_path:
-                frames_paths.append(next_frame_path)
-
-        return frames_paths
+        log.info(f"Next frame: {next_frame_path}")
+        return next_frame_path
 
     @staticmethod
     def get_all_video_paths_in_dir(path) -> List[str]:

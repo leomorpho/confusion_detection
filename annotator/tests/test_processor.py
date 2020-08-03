@@ -12,77 +12,58 @@ TESTDATA = "testdata"
 def test_frame_processor_creation():
     TESTDIR = f"{TESTDATA}/simplecase"
     fp = FrameProcessor(TESTDIR)
-    assert(set(fp.queue) == set(['testdata/simplecase/raw/2019-10-29-14-21-37.bag', 'testdata/simplecase/raw/2019-10-29-14-21-36.bag']))
-    assert(fp.curr_dir == f'{TESTDIR}/raw/2019-10-29-14-21-35.bag')
+    assert(set(fp.queue) == set(['testdata/simplecase/raw/C', 'testdata/simplecase/raw/A']))
+    assert(fp.curr_dir == f'{TESTDIR}/raw/B')
     assert(fp.curr_frame == 1)
 
     # Go all the way to the end of the frames
-    assert(set(fp.next()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
+    assert(fp.next() == "testdata/simplecase/raw/B/0001_rendered.jpeg")
 
-    assert(set(fp.next()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0002.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0002.jpeg'})
+    assert(fp.next() == "testdata/simplecase/raw/B/0002_rendered.jpeg")
 
-    assert(set(fp.next()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0003.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0003.jpeg'})
+    assert(fp.next() == "testdata/simplecase/raw/B/0003_rendered.jpeg")
 
-    assert(set(fp.next()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0004.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0004.jpeg'})
+    assert(fp.next() == "testdata/simplecase/raw/B/0004_rendered.jpeg")
 
-    assert(set(fp.next()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0005.jpeg'})
+    assert(fp.next() == "testdata/simplecase/raw/B/0005_rendered.jpeg")
 
     # next should be idempotent
-    assert(fp.next() == [])
-    assert(fp.next() == [])
-    assert(fp.next() == [])
+    assert(fp.next() == None)
+    assert(fp.next() == None)
+    assert(fp.next() == None)
 
     # Go back all the way to the birth of Jesus
-    assert(set(fp.prev()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0005.jpeg'})
+    assert(fp.prev() == "testdata/simplecase/raw/B/0005_rendered.jpeg")
 
-    assert(set(fp.prev()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0004.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0004.jpeg'})
+    assert(fp.prev() == "testdata/simplecase/raw/B/0004_rendered.jpeg")
 
-    assert(set(fp.prev()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0003.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0003.jpeg'})
+    assert(fp.prev() == "testdata/simplecase/raw/B/0003_rendered.jpeg")
 
-    assert(set(fp.prev()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0002.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0002.jpeg'})
+    assert(fp.prev() == "testdata/simplecase/raw/B/0002_rendered.jpeg")
 
-    assert(set(fp.prev()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
+    assert(fp.prev() == "testdata/simplecase/raw/B/0001_rendered.jpeg")
+
 
     # Should be idempotent
-    assert(fp.prev() == [])
-    assert(fp.prev() == [])
-    assert(fp.prev() == [])
+    assert(fp.prev() == None)
+    assert(fp.prev() == None)
+    assert(fp.prev() == None)
 
-    assert(set(fp.next()) == {
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/A/0001.jpeg',
-        f'{TESTDIR}/raw/2019-10-29-14-21-35.bag/B/0001.jpeg'})
+    assert(fp.next() == "testdata/simplecase/raw/B/0001_rendered.jpeg")
 
 
 def test_next_directory():
     TESTDIR = f"{TESTDATA}/simplecase"
     fp = FrameProcessor(TESTDIR)
-    assert(fp.curr_dir == "testdata/simplecase/raw/2019-10-29-14-21-35.bag")
+    assert(fp.curr_dir == "testdata/simplecase/raw/B")
     assert(fp.curr_frame == 1)
 
     fp.next_directory(extract_frames=False)
-    assert(fp.curr_dir == "testdata/simplecase/raw/2019-10-29-14-21-36.bag")
+    assert(fp.curr_dir == "testdata/simplecase/raw/C")
     assert(fp.curr_frame == 1)
 
     fp.next_directory(extract_frames=False)
-    assert(fp.curr_dir == "testdata/simplecase/raw/2019-10-29-14-21-37.bag")
+    assert(fp.curr_dir == "testdata/simplecase/raw/A")
     assert(fp.curr_frame == 1)
 
     fp.next_directory(extract_frames=False)
