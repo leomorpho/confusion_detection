@@ -7,7 +7,29 @@ Install `ffmpeg`:
 * MacOS: `brew install ffmpeg`
 * Ubuntu/Debian: `sudo apt install ffmpeg`
 
+
+
+## General Design
+
+### Trained Models
+
+The following is a list of trained models that we are considering to extract features from our images/videos.
+
+[**Top 57 Pose Estimation Trained Models**](https://awesomeopensource.com/projects/human-pose-estimation)
+
+Seems like OpenPose and AlphaPose are the best models to detect human pose.
+
+* [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+* [AlphaPose](https://github.com/MVIG-SJTU/AlphaPose)
+
+AlphaPose seems to have slightly better performances than OpenPose, but only works on linux or windows. Since both member of the team only have Macos, OpenPose seems a better option.
+
+See [how to install OpenPose on Macos](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation.md)
+
+Because OpenPose can only extract 2D representations of images, we will use the same camera for all the data. 
+
 ## Annotation tool
+
 You will need the `data` directory to have the `raw` directory filled with the video data.
 ```
 - data
@@ -73,4 +95,3 @@ pytest
 # See test coverage
 pytest --cov=src tests/
 ```
-

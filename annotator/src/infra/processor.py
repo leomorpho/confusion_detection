@@ -90,9 +90,9 @@ class FrameProcessor:
                 # Remove ending ".mp4" extension and starting slash
                 video_name = "".join(self.current_video.split(".")[0:-1])[1:]
                 data = {
-                        "videoFramesPath": video_name,
-                        "labels": self.results
-                        }
+                    "videoFramesPath": video_name,
+                    "labels": self.results
+                }
                 json.dump(data, f)
             else:
                 json.dump(self.results, f)
@@ -129,7 +129,8 @@ class FrameProcessor:
         frame_number = f"{self.curr_frame}".zfill(MAX_DIGITS_FRAME_NAME)
 
         # Frames directory has name of video minus extension
-        prev_frame_path = glob.glob(f"{self.curr_dir}/*{frame_number}*.jpeg")[0]
+        prev_frame_path = glob.glob(
+            f"{self.curr_dir}/*{frame_number}*.jpeg")[0]
         if os.path.exists(prev_frame_path):
             return prev_frame_path
 
@@ -173,7 +174,8 @@ class FrameProcessor:
         # Frames directory has name of video minus extension
         next_frame_path = ""
         try:
-            next_frame_path = glob.glob(f"{parent_dir}/*{frame_number}*.jpeg")[0]
+            next_frame_path = glob.glob(
+                f"{parent_dir}/*{frame_number}*.jpeg")[0]
         except IndexError:
             # Try to get all the frames from a folder, even if for some
             # videos the frames ran out.
