@@ -82,6 +82,8 @@ if __name__ == "__main__":
                 os.remove(filepath)
                 continue
 
+            print(f"\nProcessing {filepath}...")
+
         # Hack to get OpenPose to work. Since there are too many images
         # in my directories, OpenPose crashes. Move each image to a directory
         # and then delete it. The results will be saved in the correct dir.
