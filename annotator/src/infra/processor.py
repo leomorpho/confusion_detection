@@ -135,9 +135,8 @@ class FrameProcessor:
 
         return None
 
-    def next_directory(self, extract_frames=True, single_video=False) -> bool:
+    def next_directory(self, single_video=False) -> bool:
         """
-        :param extract_frames: can turn off for testing
         :param single_video: use only 1 video for annotation.
             Do not use all videos. This is usefull if videos have
             inconsistent frame rates.
@@ -160,56 +159,7 @@ class FrameProcessor:
 
         log.info(f"New current directory is {self.curr_dir}")
 
-        # Extract frames from all videos
-        video_paths = self.get_all_video_paths_in_dir(self.curr_dir)
-
-        if single_video:
-            for path in video_paths:
-                if os.path.exists(path):
-                    self.current_video = video_paths[0]
-                    log.info(f"Single video mode: {self.current_video}")
-                    break
-
-        if extract_frames:
-            if single_video:
-                self.extract_all_frames_from_video(self.current_video)
-            else:
-                for video_path in video_paths:
-                    # Extract frames to sibling directory of video
-                    # (place dir next to vid)
-                    self.extract_all_frames_from_video(video_path)
         return True
-
-    @staticmethod
-    def extract_all_frames_from_video(video_path):
-        """
-        Extract all frames from a video.
-
-        :param video_path: video to extract frames from
-        :param frames_path: dir to extract frames to
-        """
-        # Create directory name from video name
-        dir_name = video_path.split("/")[-1].split(".")[0]
-        log.debug(f"About to extract frames for video {video_path}")
-
-        parent_dir = video_path.split("/")
-        parent_dir = "/".join(parent_dir[:-1])
-        frames_dir_path = f"{parent_dir}/{dir_name}"
-        log.debug(
-            f"Creating new directory {frames_dir_path} for video {video_path}")
-
-        if os.path.exists(frames_dir_path):
-            num_images = len(glob.glob(f"{frames_dir_path}/*"))
-            if num_images > 0:
-                log.debug("Frames directory for video already exists")
-                return
-        else:
-            log.info(frames_dir_path)
-            os.makedirs(frames_dir_path)
-
-        command = f"ffmpeg -i {video_path} {frames_dir_path}/%{MAX_DIGITS_FRAME_NAME}d.jpeg -n"
-        subprocess.call(shlex.split(command))
-        log.debug(f"Extracted frames for video {video_path}")
 
     @classmethod
     def next_frame(cls, parent_dir, curr_frame_count) -> List[str]:
@@ -256,16 +206,3 @@ class FrameProcessor:
                 dirs.append(f"{path}/{i}")
 
         return dirs
-
-    def extract_frames_for_all_dirs(self):
-        # Add current directory to queue
-        dir_list = self.queue
-        dir_list.append(self.curr_dir)
-
-        for directory in dir_list:
-            video_paths = self.get_all_video_paths_in_dir(directory)
-            for video_path in video_paths:
-                # Extract frames to sibling directory of video (place
-                # dir next to vid)
-                self.extract_all_frames_from_video(video_path)
-        log.info("Finished extracting frames for all videos from all directories")

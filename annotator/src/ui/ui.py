@@ -16,74 +16,24 @@ class Images(QWidget):
     # to make it more programatic. This was done for speed of implementation
     # and is not ideal nor clear. Different number of images should be able to show
     # and adapt dynamically.
-    def __init__(self, image_paths=None):
+
+    def __init__(self, image_path=None):
         super().__init__()
 
         self.img_not_available_path = './media/no_image_available.png'
         grid = QGridLayout(self)
 
         self.label1 = QLabel()
-        self.label2 = QLabel()
-        self.label3 = QLabel()
-        self.label4 = QLabel()
 
         im = QPixmap(self.img_not_available_path)
         self.label1.setPixmap(im)
-        self.label2.setPixmap(im)
-        self.label3.setPixmap(im)
-        self.label4.setPixmap(im)
-        grid.addWidget(self.label1, 0, 0)
-        grid.addWidget(self.label2, 0, 1)
-        grid.addWidget(self.label3, 1, 0)
-        grid.addWidget(self.label4, 1, 1)
+        grid.addWidget(self.label1)
         self.setLayout(grid)
 
-    def update_images(self, paths):
-        if len(paths) == 1 and os.path.exists(paths[0]):
-            im1 = QPixmap(paths[0])
-            im1 = im1.scaled(self.label1.size(), Qt.KeepAspectRatio)
-            self.label1.setPixmap(im1)
-            # Remove all other image holders
-            self.label2.setParent(None)
-            self.label3.setParent(None)
-            self.label4.setParent(None)
-
-        else:
-            if len(paths) >= 1 and os.path.exists(paths[0]):
-                im1 = QPixmap(paths[0])
-                im1 = im1.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label1.setPixmap(im1)
-            else:
-                im = QPixmap(self.img_not_available_path)
-                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label1.setPixmap(im)
-
-            if len(paths) >= 2 and os.path.exists(paths[1]):
-                im2 = QPixmap(paths[1])
-                im2 = im2.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label2.setPixmap(im2)
-            else:
-                im = QPixmap(self.img_not_available_path)
-                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label2.setPixmap(im)
-
-            if len(paths) >= 3 and os.path.exists(paths[2]):
-                im3 = QPixmap(paths[2])
-                im3 = im3.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label3.setPixmap(im3)
-            else:
-                im = QPixmap(self.img_not_available_path)
-                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label3.setPixmap(im)
-
-            if len(paths) >= 4 and os.path.exists(paths[3]):
-                im4 = QPixmap(paths[3])
-                im4 = im4.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label4.setPixmap(im4)
-            else:
-                im = QPixmap(self.img_not_available_path)
-                im = im.scaled(self.label1.size(), Qt.KeepAspectRatio)
-                self.label4.setPixmap(im)
+    def update_image(self, path):
+        im1 = QPixmap(path)
+        im1 = im1.scaled(self.label1.size(), Qt.KeepAspectRatio)
+        self.label1.setPixmap(im1)
 
 
 class Buttons(QWidget):
@@ -127,14 +77,14 @@ class CentralWidget(QWidget):
         self.setLayout(vbox)
         self.num_cameras = None
 
-    def update_images(self, images_paths=None, processed_dir=None):
+    def update_image(self, images_paths=None, processed_dir=None):
         """
         Updates the images in the UI
         """
         # Keep track of max number of cameras
         if not self.num_cameras:
             self.num_cameras = len(images_paths)
-        self.image_widget.update_images(images_paths)
+        self.image_widget.update_image(images_paths)
         self.processed_dir_name.setText(f"Processing: {processed_dir}")
         self.num_camera_widget.setText(
             f"Showing frames from {len(images_paths)}/{self.num_cameras} cameras")
@@ -170,11 +120,6 @@ class MainWindow(QMainWindow):
         exit_action.setShortcut(QKeySequence.Quit)
         exit_action.triggered.connect(self.close)
         self.file_menu.addAction(exit_action)
-
-        # Extract frames QAction
-        frames_action = QAction("Extract all frames", self)
-        frames_action.triggered.connect(self.extract_frames_for_all_dirs)
-        self.file_menu.addAction(frames_action)
 
         # Window dimensions
         geometry = qApp.desktop().availableGeometry(self)
@@ -216,9 +161,9 @@ class MainWindow(QMainWindow):
 
     def next_frame(self):
         # Load next frame
-        frames_paths = self.frame_processor.next()
+        frames_path = self.frame_processor.next()
 
-        if not frames_paths:
+        if not frames_path:
             msg = QMessageBox()
             msg.setWindowTitle("Finished current directory")
             msg.setText("Save and go on to next directory?")
@@ -248,16 +193,16 @@ class MainWindow(QMainWindow):
                         self.close()
                         sys.exit(1)
 
-                frames_paths = self.frame_processor.next()
+                frames_path = self.frame_processor.next()
             if choice == QMessageBox.No:
                 # Undo next frame
                 _ = self.frame_processor.prev()
                 pass
 
-        if frames_paths:
+        if frames_path:
             # Update UI
-            self.central_widget.update_images(
-                frames_paths,
+            self.central_widget.update_image(
+                frames_path,
                 self.frame_processor.curr_dir)
 
     def prev_frame(self):
@@ -272,7 +217,7 @@ class MainWindow(QMainWindow):
             log.debug(f"prev: {frames}")
 
             # Update UI
-            self.central_widget.update_images(
+            self.central_widget.update_image(
                 frames,
                 self.frame_processor.curr_dir)
 
@@ -281,6 +226,3 @@ class MainWindow(QMainWindow):
         Abstract frame_processor
         """
         self.frame_processor.save(label)
-
-    def extract_frames_for_all_dirs(self):
-        self.frame_processor.extract_frames_for_all_dirs()
