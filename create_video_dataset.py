@@ -1,4 +1,5 @@
 import glob
+import platform
 import os
 import subprocess
 import shlex
@@ -20,6 +21,8 @@ MAX_DIGITS_FRAME_NAME = 4
 TMP = "data/tmp"
 RENDER_EVERY_X = 3
 
+OPENPOSE_WSL_WINDOWS = "/mnt/c/Users/leona/Downloads/openpose-1.6.0-binaries-win64-gpu-python-flir-3d_recommended/openpose/bin/OpenPoseDemo.exe"
+
 if __name__ == "__main__":
     dirs = glob.glob(f"{DATA}/*")
 
@@ -31,7 +34,7 @@ if __name__ == "__main__":
     if not os.path.exists(NEW_DATA):
         os.mkdir(NEW_DATA)
 
-    for video in videos:
+    for video in videos[0]:
         print(video)
 
         # Remove extension
@@ -53,7 +56,7 @@ if __name__ == "__main__":
         images.sort()
 
         # Run OpenPose for every frame
-        for index, filepath in enumerate(images):
+        for index, filepath in enumerate(images[0]):
             # Do not re-run OpenPose on already rendered images
             if "rendered" in filepath:
                 break
@@ -74,6 +77,9 @@ if __name__ == "__main__":
 
                 # Run OpenPose against the TMP directory
                 command = f"{OPENPOSE}/build/examples/openpose/openpose.bin --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+
+                if "microsoft" in platform.uname()[3].lower():
+                    command = f"{OPENPOSE_WSL_WINDOWS} --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
 
                 print(f"Running OpenPose for {filepath.split('/')[-1]}")
                 try:
