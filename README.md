@@ -28,6 +28,21 @@ See [how to install OpenPose on Macos](https://github.com/CMU-Perceptual-Computi
 
 Because OpenPose can only extract 2D representations of images, we will use the same camera for all the data. 
 
+### Work Logs
+
+#### Done
+
+* Installed OpenPose on my laptop (MacOS) and a more powerful desktop (Windows)
+* Created a script to run OpenPose on all dataset
+  * Extract all frames for every video
+  * Run OpenPose on every frame. Due to my limited hardware, I used a hack to get OpenPose to work on folders containing 400+ images. I temporarily copy each image to a `tmp` folder, run OpenPose on that folder, and copy the results back to the new dataset.
+* OpenPose is painfully slow. It originally took 20s per frame on my laptop and 12s per frame on my desktop. I figured out how to change the model used. For CPU only, the `COCO` model is fastest. This change improved my latop to 11s per frame and my desktop to about 10s per frame (curiously no big difference there).
+
+#### Todo
+
+* Because both the `COCO` and `BODY_25` models were used to create the dataset with OpenPose, the `json` files will have 2 different numbers of datapoints. Some will have 25 for the`BODY_25` model, others will have 18 (I believe?) for the `COCO` model. Furthermore, there is one `json` created per frame. For a folder of frames (= 1 video), the OpenFace features in the `json` files must be stitched together. The annotation (confused/unknown/not confused/no person) must be added to the stiched object. The resulting `json`, which comprises the OpenFace features and confusion labels must be saved to disk.
+* 
+
 ## Annotation tool
 
 You will need the `data` directory to have the `raw` directory filled with the video data.

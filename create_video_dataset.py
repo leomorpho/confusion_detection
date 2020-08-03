@@ -5,6 +5,7 @@ import subprocess
 import shlex
 import shutil
 import shutil
+import sys
 from PIL import Image
 
 # This script creates a new dataset from the original dataset.
@@ -16,11 +17,11 @@ from PIL import Image
 
 DATA = "data/raw"
 NEW_DATA = "data/new_raw"
-OPENPOSE = "../openpose"
 MAX_DIGITS_FRAME_NAME = 4
 TMP = "data/tmp"
 RENDER_EVERY_X = 3
 
+OPENPOSE_MACOS_INSTALL = "../openpose/build/examples/openpose/openpose.bin"
 OPENPOSE_WSL_WINDOWS = "/mnt/c/Users/leona/Downloads/openpose-1.6.0-binaries-win64-only_cpu-python-flir-3d/openpose/bin/OpenPoseDemo.exe"
 
 if __name__ == "__main__":
@@ -97,18 +98,22 @@ if __name__ == "__main__":
             shutil.copyfile(filepath, f"{TMP}/{image_name}")
             print(f"image_name: {image_name}")
 
+            OPENPOSE_COMMAND = f"-model_pose COCO --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+            # OPENPOSE_COMMAND = f"--image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+
             # Run OpenPose against the TMP directory
-            command = f"{OPENPOSE}/build/examples/openpose/openpose.bin --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+            command = f"{OPENPOSE_MACOS_INSTALL} {OPENPOSE_COMMAND}"
 
             if "microsoft" in platform.uname()[3].lower():
-                command = f"{OPENPOSE_WSL_WINDOWS} --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
-                print(command)
+                command = f"{OPENPOSE_WSL_WINDOWS} {OPENPOSE_COMMAND}"
 
+            print(f"Running {command}")
             try:
                 print(f"Running OpenPose for {filepath.split('/')[-1]}")
                 subprocess.check_call(shlex.split(command))
             except subprocess.CalledProcessError as e:
                 print(f"Failed to run OpenPose: {e}")
+                sys.exit(1)
 
             json_file = glob.glob(f"{TMP}/*.json")[0]
             image_file = glob.glob(f"{TMP}/*.png")[0]
