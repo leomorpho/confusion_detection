@@ -7,8 +7,9 @@ __pycache__/
 
 # Tests
 annotator/testdata/simplecase/processed/*
-*.json
 raw_backup
+tmp
+models
 
 # C extensions
 *.so

@@ -9,7 +9,7 @@ import random
 from typing import List
 from src.infra.logger import log
 
-RAW = "raw"
+RAW = "new_raw"
 PROCESSED = "processed"
 
 # This is the maximum number of digits which can be in a frame name. This

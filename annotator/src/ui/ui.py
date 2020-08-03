@@ -64,14 +64,11 @@ class CentralWidget(QWidget):
         # cameras being shown (out of total)
         self.processed_dir_name = QLabel()
         self.processed_dir_name.setFixedHeight(10)
-        self.num_camera_widget = QLabel()
-        self.num_camera_widget.setFixedHeight(10)
 
         buttons_widget = Buttons()
 
         vbox = QVBoxLayout(self)
         vbox.addWidget(self.processed_dir_name)
-        vbox.addWidget(self.num_camera_widget)
         vbox.addWidget(self.image_widget)
         vbox.addWidget(buttons_widget)
         self.setLayout(vbox)
@@ -86,8 +83,6 @@ class CentralWidget(QWidget):
             self.num_cameras = len(images_paths)
         self.image_widget.update_image(images_paths)
         self.processed_dir_name.setText(f"Processing: {processed_dir}")
-        self.num_camera_widget.setText(
-            f"Showing frames from {len(images_paths)}/{self.num_cameras} cameras")
 
 
 class MainWindow(QMainWindow):
