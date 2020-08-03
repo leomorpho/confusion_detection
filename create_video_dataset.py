@@ -21,7 +21,7 @@ MAX_DIGITS_FRAME_NAME = 4
 TMP = "data/tmp"
 RENDER_EVERY_X = 3
 
-OPENPOSE_WSL_WINDOWS = "/mnt/c/Users/leona/Downloads/openpose-1.6.0-binaries-win64-gpu-python-flir-3d_recommended/openpose/bin/OpenPoseDemo.exe"
+OPENPOSE_WSL_WINDOWS = "/mnt/c/Users/leona/Downloads/openpose-1.6.0-binaries-win64-only_cpu-python-flir-3d/openpose/bin/OpenPoseDemo.exe"
 
 if __name__ == "__main__":
     dirs = glob.glob(f"{DATA}/*")
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     if not os.path.exists(NEW_DATA):
         os.mkdir(NEW_DATA)
 
-    for video in videos[0]:
+    for video in videos:
         print(video)
 
         # Remove extension
@@ -52,57 +52,71 @@ if __name__ == "__main__":
             command = f"ffmpeg -i {video} {frames_dir}/%{MAX_DIGITS_FRAME_NAME}d.jpeg -n"
             subprocess.call(shlex.split(command))
 
-        images = glob.glob(f"{frames_dir}/*")
+        images = glob.glob(f"{frames_dir}/*.jpeg")
         images.sort()
 
-        # Run OpenPose for every frame
-        for index, filepath in enumerate(images[0]):
+        # Keep track of frames that were processed in previous runs of the script
+        already_finished = set()
+
+        # Do not redo work from previous script runs
+        for filepath in images:
             # Do not re-run OpenPose on already rendered images
             if "rendered" in filepath:
-                break
+                name = ".".join(filepath.split("/")).split(".")[-2]
+                name = name.split("_")[0]
+                print(f"{name} already processed")
+                already_finished.add(name)
 
-            # Hack to get OpenPose to work. Since there are too many images
-            # in my directories, OpenPose crashes. Move each image to a directory
-            # and then delete it. The results will be saved in the correct dir.
-            try:
-                if os.path.exists(TMP):
-                    shutil.rmtree(TMP)
+        # Run OpenPose for every frame
+        for index, filepath in enumerate(images):
 
-                os.mkdir(TMP)
-                image_name = filepath.split("/")[-1]
+            # Skip already rendered images
+            if "rendered" in filepath:
+                print("Image already rendered. Not re-processing.")
+                continue
 
-                # Copy image to TMP directory for OpenPose to process it
-                shutil.copyfile(filepath, f"{TMP}/{image_name}")
-                print(f"image_name: {image_name}")
+            # Skip image if already processed in earlier run
+            name = ".".join(filepath.split("/")).split(".")[-2]
+            if name in already_finished:
+                print("Image already processed. Not re-processing.")
+                continue
 
-                # Run OpenPose against the TMP directory
-                command = f"{OPENPOSE}/build/examples/openpose/openpose.bin --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+        # # Hack to get OpenPose to work. Since there are too many images
+        # # in my directories, OpenPose crashes. Move each image to a directory
+        # # and then delete it. The results will be saved in the correct dir.
+        #     if os.path.exists(TMP):
+        #         shutil.rmtree(TMP)
 
-                if "microsoft" in platform.uname()[3].lower():
-                    command = f"{OPENPOSE_WSL_WINDOWS} --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+        #     os.mkdir(TMP)
+        #     image_name = filepath.split("/")[-1]
 
-                print(f"Running OpenPose for {filepath.split('/')[-1]}")
-                try:
-                    subprocess.check_call(shlex.split(command))
-                except subprocess.CalledProcessError:
-                    print("failed")
-                print("success")
+        #     # Copy image to TMP directory for OpenPose to process it
+        #     shutil.copyfile(filepath, f"{TMP}/{image_name}")
+        #     print(f"image_name: {image_name}")
 
-                json_file = glob.glob(f"{TMP}/*.json")[0]
-                image_file = glob.glob(f"{TMP}/*.png")[0]
+        #     # Run OpenPose against the TMP directory
+        #     command = f"{OPENPOSE}/build/examples/openpose/openpose.bin --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
 
-                # Copy rendered image back to data directory
-                shutil.copy(json_file, frames_dir)
-                picture = Image.open(image_file)
-                image_name_no_extension = image_name.split(".")[0]
-                picture.save(f"{frames_dir}/{image_name_no_extension}_rendered.jpeg", 'JPEG', optimize=True, quality=10)
+        #     if "microsoft" in platform.uname()[3].lower():
+        #         command = f"{OPENPOSE_WSL_WINDOWS} --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+        #         print(command)
 
-            except Exception as e:
-                print(f"Failed: {e}")
-                shutil.rmtree(TMP)
-            finally:
-                pass
-                # Remove original if successful
-                os.remove(filepath)
+        #     try:
+        #         print(f"Running OpenPose for {filepath.split('/')[-1]}")
+        #         subprocess.check_call(shlex.split(command))
+        #     except subprocess.CalledProcessError as e:
+        #         print(f"Failed to run OpenPose: {e}")
+
+        #     json_file = glob.glob(f"{TMP}/*.json")[0]
+        #     image_file = glob.glob(f"{TMP}/*.png")[0]
+
+        #     # Copy rendered image back to data directory
+        #     shutil.copy(json_file, frames_dir)
+        #     picture = Image.open(image_file)
+        #     image_name_no_extension = image_name.split(".")[0]
+        #     picture.save(f"{frames_dir}/{image_name_no_extension}_rendered.jpeg", 'JPEG', optimize=True, quality=10)
+        #     # Remove original if successful
+    #   #      os.remove(filepath)
+        #     print("Success")
 
     print(len(videos))
