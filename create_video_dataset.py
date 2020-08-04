@@ -127,4 +127,13 @@ if __name__ == "__main__":
             os.remove(filepath)
             print("Success")
 
-    print(len(videos))
+    if "microsoft" in platform.uname()[3].lower():
+        import winsound
+        while True:
+            duration = 1000  # milliseconds
+            freq = 440  # Hz
+            winsound.Beep(freq, duration)
+    else:
+        # Assume we're on Macos
+        while True:
+            os.system('say "all videos in the data directory have been processed"')
