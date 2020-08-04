@@ -5,7 +5,7 @@ import sys
 
 DATA_PATH = "../data"
 SINGLE_VIDEO = True
-RANDOM_DIR = False
+RANDOM_DIR = True
 
 if __name__ == "__main__":
     # If a CLI arg is passed, use the test data

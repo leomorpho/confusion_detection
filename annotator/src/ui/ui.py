@@ -63,7 +63,7 @@ class CentralWidget(QWidget):
         # Top info is the title of processed folder and the number of
         # cameras being shown (out of total)
         self.processed_dir_name = QLabel()
-        self.processed_dir_name.setFixedHeight(10)
+        self.processed_dir_name.setFixedHeight(30)
 
         buttons_widget = Buttons()
 

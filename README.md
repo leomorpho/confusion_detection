@@ -42,7 +42,7 @@ Because OpenPose can only extract 2D representations of images, we will use the 
 
 * The annotation tool currently
 * Because both the `COCO` and `BODY_25` models were used to create the dataset with OpenPose, the `json` files will have 2 different numbers of datapoints. Some will have 25 for the`BODY_25` model, others will have 18 (I believe?) for the `COCO` model. Furthermore, there is one `json` created per frame. For a folder of frames (= 1 video), the OpenFace features in the `json` files must be stitched together. The annotation (confused/unknown/not confused/no person) must be added to the stiched object. The resulting `json`, which comprises the OpenFace features and confusion labels must be saved to disk.
-* 
+* What kind of data augmentation techniques can we use?
 
 ## Annotation tool
 

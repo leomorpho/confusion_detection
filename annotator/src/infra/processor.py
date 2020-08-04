@@ -6,6 +6,7 @@ import subprocess
 import shlex
 import json
 import random
+import getpass
 from typing import List
 from src.infra.logger import log
 
@@ -30,13 +31,14 @@ class FrameProcessor:
             raise Exception("Import path does not exist")
 
         if not os.path.exists(f"{data_path}/{RAW}"):
-            raise Exception("\"raw\" data path does not exist")
+            raise Exception(f"'{data_path}/{RAW}' data path does not exist")
 
         if not os.path.exists(f"{data_path}/{processed_path}"):
             os.mkdir(f"{data_path}/{processed_path}")
 
         raw_dirs = glob.glob(f"{data_path}/{RAW}/*")
         processed_dirs = glob.glob(f"{data_path}/{processed_path}/*")
+        processed_dirs = [i.split("/")[-1].split(".")[0]  for i in processed_dirs]
 
         self.queue = raw_dirs
 
@@ -52,9 +54,9 @@ class FrameProcessor:
         for raw_dir in raw_dirs:
             raw_dir_name = raw_dir.split("/")[-1].split(".")[0]
             for processed_dir in processed_dirs:
-                processed_dir_name = processed_dir.split("/")[-1]
-                if processed_dir_name == raw_dir_name:
-                    queue.remove(processed_dir_name)
+                if processed_dir == raw_dir_name:
+                    log.info(f"Already processed. Removing dir {processed_dir} from queue")
+                    self.queue.remove(raw_dir)
 
         # Keep track of current directory of raw data
         self.curr_dir = self.queue.pop()
@@ -64,8 +66,6 @@ class FrameProcessor:
 
         # Results dictionnary, where each label for each frame is stored
         self.results = dict()
-
-        self.current_video = None
 
     def save(self, label: str):
         """
@@ -86,16 +86,14 @@ class FrameProcessor:
         filename = self.curr_dir.split("/")[-1].split(".")[0]
         result_path = f"{self.data_path}/{PROCESSED}/{filename}.json"
         with open(result_path, "w") as f:
-            if self.current_video:
-                # Remove ending ".mp4" extension and starting slash
-                video_name = "".join(self.current_video.split(".")[0:-1])[1:]
-                data = {
-                    "videoFramesPath": video_name,
-                    "labels": self.results
-                }
-                json.dump(data, f)
-            else:
-                json.dump(self.results, f)
+            # Remove ending ".mp4" extension and starting slash
+            frames_dir = self.curr_dir.split("/")[-1]
+            data = {
+                "annotator": getpass.getuser(),
+                "framesDirectory": frames_dir,
+                "labels": self.results
+            }
+            json.dump(data, f)
 
     def next(self) -> str:
         """
