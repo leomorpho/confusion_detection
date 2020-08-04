@@ -1,4 +1,3 @@
-data/raw*
 .DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -10,6 +9,10 @@ annotator/testdata/simplecase/processed/*
 raw_backup
 tmp
 models
+data/new_raw
+data/not_yet
+data/raw
+data/tmp
 
 # C extensions
 *.so
