@@ -9,6 +9,10 @@ Install `ffmpeg`:
 
 
 
+### Jupyter Notebook
+
+Find our jupyter notebook [here](https://colab.research.google.com/drive/1GB-D6D5eOkK_TgdmVJ8mqMvPmIvMl7aG?usp=sharing)
+
 ## General Design
 
 ### Trained Models
