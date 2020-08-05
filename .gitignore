@@ -9,10 +9,11 @@ annotator/testdata/simplecase/processed/*
 raw_backup
 tmp
 models
-data/new_raw
-data/not_yet
-data/raw
+data/new_raw/*
+data/not_yet/
+data/raw/*
 data/tmp
+data/done
 
 # C extensions
 *.so
