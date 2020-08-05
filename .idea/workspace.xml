@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e0b5b163-a5b7-467a-afeb-6474f14cd9bb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csvAggregator.py" beforeDir="false" afterPath="$PROJECT_DIR$/csvAggregator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/combinedJsons/2019-10-24-15-05-09bag_img_raw_02.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0001_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0001_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0002_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0002_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0003_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0003_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0003_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0003_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0004_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0004_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0005_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0005_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0006_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0006_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0006_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0006_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0007_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0007_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0007_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0007_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0009_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0009_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0010_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0010_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0011_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0011_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0012_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0012_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0012_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0012_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0013_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0013_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0013_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0013_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0015_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0015_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0016_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0016_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0017_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0017_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0019_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0019_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0019_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0019_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0020_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0020_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0021_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0021_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0022_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0022_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0023_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0023_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0023_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0023_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0024_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0024_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0027_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0027_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0030_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0030_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0031_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0031_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0031_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0031_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0034_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0034_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0034_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0034_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0035_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0035_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0035_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0035_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0038_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0038_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0039_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0039_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0040_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0040_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0041_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0041_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0043_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0043_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0044_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0044_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0046_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0046_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0048_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0048_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0049_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0049_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0049_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0049_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0050_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0050_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0051_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0051_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0053_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0053_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0053_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0053_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0054_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0054_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0057_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0057_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0057_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0057_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0058_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0058_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0058_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0058_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0059_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0059_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0063_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0063_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0064_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0064_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0064_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0064_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0065_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0065_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0066_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0066_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0066_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0066_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0067_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0067_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0067_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0067_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0068_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0068_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0069_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0069_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0069_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0069_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0070_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0070_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0070_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0070_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0071_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0071_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0072_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0072_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0072_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0072_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0073_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0073_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0074_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0074_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0074_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0074_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0075_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0075_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0076_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0076_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0076_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0076_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0077_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0077_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0077_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0077_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0078_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0078_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0079_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0079_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0080_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0080_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0081_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0081_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0082_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0082_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0082_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0082_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0083_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0083_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0084_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0084_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0084_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0084_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0085_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0085_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0086_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0086_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0087_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0087_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0090_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0090_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0090_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0090_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0091_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0091_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0092_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0092_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0093_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0093_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0094_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0094_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0097_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0097_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0097_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0097_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0098_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0098_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0099_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0099_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0099_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0099_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0100_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0100_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0101_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0101_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0102_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0102_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0102_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0102_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0103_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0103_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0104_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0104_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0104_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0104_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0105_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0105_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0106_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0106_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0108_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0108_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0108_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0108_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0109_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0109_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0110_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0110_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0110_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0110_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0111_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0111_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0111_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0111_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0116_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0116_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0116_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0116_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0118_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0118_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0121_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0121_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0122_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0122_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0124_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0124_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0125_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0125_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0126_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0126_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0127_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0127_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0128_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0128_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0129_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0129_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0131_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0131_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0133_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0133_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0135_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0135_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0135_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0135_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0137_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0137_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0138_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0138_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0138_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0138_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0140_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0140_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0141_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0141_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0142_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0142_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0143_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0143_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0143_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0143_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0146_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0146_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0147_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0147_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0147_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0147_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0148_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0148_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0148_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0148_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0149_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0149_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0149_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0149_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0150_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0150_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0153_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0153_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0153_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0153_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0154_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0154_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0154_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0154_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0155_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0155_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0155_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0155_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0156_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0156_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0158_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0158_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0158_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0158_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0160_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0160_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0160_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0160_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0162_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0162_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0162_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0162_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0163_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0163_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0164_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0164_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0164_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0164_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0165_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0165_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0166_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0166_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0166_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0166_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0167_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0167_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0167_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0167_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0168_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0168_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0169_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0169_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0170_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0170_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0170_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0170_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0171_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0171_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0172_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0172_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0174_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0174_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0174_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0174_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0177_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0177_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0178_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0178_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0179_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0179_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0180_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0180_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0180_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0180_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0181_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0181_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0182_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0182_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0183_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0183_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0183_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0183_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0184_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0184_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0184_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0184_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0185_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0185_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0186_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0186_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0187_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0187_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0187_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0187_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0188_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0188_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0189_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0189_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0189_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0189_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0190_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0190_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0191_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0191_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0192_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0192_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0192_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0192_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0194_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0194_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0197_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0197_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0197_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0197_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0199_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0199_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0200_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0200_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0201_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0201_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0202_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0202_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0203_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0203_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0204_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0204_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0206_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0206_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0207_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0207_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0208_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0208_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0209_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0209_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0211_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0211_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0211_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0211_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0212_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0212_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0213_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0213_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0213_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0213_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0216_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0216_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0218_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0218_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0219_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0219_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0219_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0219_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0220_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0220_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0221_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0221_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0221_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0221_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0222_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0222_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0223_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0223_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0224_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0224_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0224_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0224_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0225_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0225_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0225_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0225_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0226_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0226_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0228_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0228_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0228_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0228_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0230_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0230_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0230_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0230_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0231_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0231_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0231_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0231_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0232_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0232_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0232_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0232_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0233_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0233_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0234_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0234_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0235_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0235_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0235_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0235_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0236_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0236_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0236_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0236_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0237_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0237_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0238_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0238_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0239_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0239_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0239_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0239_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0241_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0241_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0242_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0242_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0243_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0243_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0245_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0245_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0247_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0247_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0247_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0247_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0249_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0249_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0250_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0250_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0251_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0251_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0252_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0252_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0252_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0252_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0253_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0253_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0254_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0254_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0254_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0254_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0255_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0255_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0256_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0256_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0257_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0257_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0257_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0257_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0258_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0258_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0258_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0258_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0259_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0259_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0260_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0260_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0260_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0260_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0261_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0261_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0261_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0261_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0263_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0263_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0265_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0265_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0265_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0265_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0266_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0266_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0267_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0267_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0268_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0268_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0268_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0268_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0269_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0269_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0271_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0271_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0272_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0272_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0272_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0272_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0273_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0273_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0274_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0274_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0274_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0274_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0275_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0275_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0275_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0275_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0276_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0276_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0277_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0277_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0277_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0277_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0278_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0278_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0279_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0279_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0280_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0280_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0282_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0282_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0283_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0283_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0285_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0285_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0286_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0286_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0287_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0287_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0288_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0288_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0289_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0289_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0290_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0290_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0291_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0291_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0291_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0291_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0293_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0293_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0293_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0293_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0294_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0294_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0295_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0295_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0295_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0295_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0296_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0296_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0296_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0296_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0297_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0297_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0298_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0298_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0300_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0300_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0301_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0301_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0301_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0301_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0302_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0302_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0302_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0302_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0303_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0303_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0303_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0303_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0304_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0304_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0304_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0304_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0305_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0305_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0307_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0307_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0309_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0309_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0311_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0311_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0312_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0312_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0312_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0312_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0313_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0313_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0314_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0314_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0315_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0315_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0315_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0315_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0316_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0316_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0316_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0316_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0317_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0317_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0318_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0318_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0318_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0318_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0319_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0319_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0321_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0321_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0321_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0321_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0322_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0322_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0323_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0323_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0324_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0324_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0324_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0324_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0325_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0325_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0327_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0327_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0328_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0328_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0328_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0328_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0330_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0330_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0332_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0332_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0333_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0333_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0333_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0333_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0334_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0334_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0334_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0334_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0335_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0335_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0335_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0335_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0336_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0336_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0337_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0337_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0338_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0338_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0338_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0338_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0339_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0339_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0339_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0339_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0340_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0340_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0341_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0341_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0342_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0342_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0342_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0342_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0343_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0343_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0345_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0345_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0346_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0346_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0347_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0347_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0347_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0347_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0348_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0348_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0350_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0350_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0351_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0351_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0353_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0353_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0354_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0354_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0355_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0355_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0357_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0357_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0358_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0358_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0359_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0359_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0359_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0359_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0361_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0361_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0362_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0362_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0363_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_01/0363_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0001_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0001_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0002_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0002_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0004_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0004_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0005_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0005_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0006_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0006_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0007_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0007_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0007_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0007_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0009_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0009_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0012_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0012_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0013_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0013_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0013_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0013_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0019_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0019_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0020_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0020_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0021_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0021_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0022_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0022_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0024_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0024_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0027_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0027_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0031_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0031_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0031_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0031_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0035_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0035_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0035_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0035_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0040_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0040_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0041_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0041_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0043_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0043_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0044_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0044_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0049_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0049_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0050_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0050_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0052_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0052_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0053_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0053_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0053_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0053_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0054_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0054_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0056_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0056_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0057_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0057_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0057_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0057_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0058_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0058_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0058_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0058_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0059_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0059_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0061_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0061_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0064_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0064_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0064_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0064_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0066_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0066_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0066_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0066_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0067_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0067_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0067_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0067_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0068_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0068_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0068_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0068_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0069_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0069_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0072_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0072_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0072_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0072_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0073_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0073_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0074_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0074_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0074_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0074_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0075_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0075_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0077_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0077_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0078_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0078_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0078_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0078_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0079_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0079_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0080_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0080_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0082_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0082_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0083_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0083_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0084_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0084_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0086_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0086_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0089_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0089_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0090_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0090_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0091_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0091_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0092_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0092_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0093_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0093_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0094_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0094_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0097_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0097_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0097_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0097_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0098_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0098_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0100_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0100_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0101_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0101_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0102_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0102_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0102_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0102_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0106_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0106_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0108_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0108_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0109_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0109_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0110_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0110_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0110_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0110_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0111_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0111_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0111_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0111_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0116_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0116_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0116_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0116_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0122_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0122_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0123_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0123_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0124_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0124_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0127_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0127_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0130_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0130_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0131_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0131_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0135_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0135_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0137_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0137_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0138_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0138_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0141_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0141_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0143_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0143_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0144_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0144_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0146_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0146_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0147_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0147_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0148_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0148_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0148_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0148_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0151_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0151_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0153_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0153_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0154_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0154_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0154_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0154_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0155_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0155_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0155_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0155_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0156_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0156_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0158_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0158_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0160_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0160_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0161_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0161_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0162_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0162_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0162_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0162_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0163_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0163_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0164_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0164_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0166_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0166_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0167_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0167_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0167_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0167_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0168_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0168_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0169_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0169_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0170_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0170_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0170_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0170_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0171_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0171_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0172_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0172_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0174_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0174_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0177_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0177_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0177_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0177_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0178_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0178_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0179_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0179_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0180_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0180_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0181_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0181_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0182_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0182_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0183_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0183_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0183_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0183_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0185_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0185_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0185_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0185_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0186_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0186_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0187_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0187_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0189_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0189_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0189_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0189_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0190_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0190_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0191_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0191_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0192_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0192_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0194_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0194_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0197_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0197_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0198_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0198_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0199_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0199_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0201_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0201_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0202_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0202_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0203_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0203_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0207_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0207_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0208_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0208_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0209_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0209_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0210_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0210_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0210_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0210_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0211_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0211_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0213_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0213_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0214_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0214_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0216_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0216_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0218_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0218_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0219_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0219_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0219_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0219_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0220_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0220_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0221_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0221_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0221_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0221_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0222_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0222_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0223_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0223_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0224_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0224_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0225_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0225_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0226_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0226_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0227_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0227_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0228_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0228_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0228_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0228_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0229_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0229_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0230_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0230_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0230_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0230_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0231_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0231_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0232_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0232_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0232_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0232_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0234_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0234_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0235_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0235_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0235_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0235_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0236_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0236_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0236_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0236_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0237_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0237_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0238_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0238_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0239_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0239_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0241_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0241_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0242_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0242_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0245_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0245_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0246_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0246_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0247_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0247_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0249_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0249_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0250_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0250_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0251_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0251_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0252_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0252_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0253_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0253_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0253_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0253_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0254_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0254_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0257_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0257_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0257_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0257_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0258_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0258_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0261_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0261_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0263_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0263_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0266_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0266_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0268_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0268_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0268_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0268_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0269_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0269_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0269_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0269_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0271_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0271_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0272_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0272_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0272_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0272_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0274_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0274_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0275_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0275_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0275_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0275_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0276_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0276_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0277_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0277_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0277_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0277_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0278_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0278_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0278_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0278_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0279_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0279_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0281_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0281_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0282_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0282_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0283_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0283_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0285_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0285_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0286_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0286_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0288_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0288_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0288_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0288_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0290_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0290_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0291_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0291_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0293_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0293_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0294_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0294_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0295_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0295_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0296_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0296_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0296_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0296_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0297_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0297_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0298_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0298_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0299_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0299_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0300_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0300_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0301_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0301_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0302_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0302_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0302_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0302_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0303_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0303_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0303_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0303_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0305_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0305_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0309_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0309_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0310_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0310_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0311_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0311_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0312_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0312_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0312_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0312_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0313_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0313_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0314_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0314_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0315_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0315_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0315_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0315_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0316_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0316_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0316_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0316_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0317_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0317_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0318_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0318_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0318_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0318_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0319_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0319_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0319_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0319_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0321_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0321_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0321_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0321_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0322_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0322_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0323_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0323_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0324_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0324_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0324_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0324_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0325_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0325_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0327_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0327_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0328_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0328_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0328_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0328_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0330_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0330_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0332_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0332_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0333_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0333_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0333_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0333_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0334_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0334_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0335_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0335_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0336_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0336_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0338_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0338_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0339_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0339_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0340_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0340_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0341_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0341_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0342_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0342_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0345_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0345_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0346_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0346_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0347_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0347_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0348_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0348_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0352_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0352_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0353_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0353_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0354_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0354_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0355_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0355_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0358_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0358_keypoints.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0358_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0358_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0361_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0361_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0362_rendered.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0362_rendered.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0363_keypoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/new_raw/2019-10-24-14-25-07bag_img_raw_02/0363_keypoints.json" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1076895064">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="60" />
+          <entry key="csvAggregator" value="61" />
+          <entry key="dummy" value="13" />
+          <entry key="py" value="5183" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="Python" value="5304" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="11" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="11" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/csvAggregator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#92#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>print</find>
+      <find>uncertain</find>
+      <find>body</find>
+      <find>routesForRaw</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>pose</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/csvAggregator" />
+        <option value="$PROJECT_DIR$/jsonAggregator.py" />
+        <option value="$PROJECT_DIR$/csvAggregator.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="37" />
+    <option name="y" value="23" />
+    <option name="width" value="1415" />
+    <option name="height" value="1097" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="confusion_detection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="confusion_detection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="confusion_detection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="confusion_detection" type="462c0819:PsiDirectoryNode" />
+              <item name="annotator" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
+      <module name="confusion_detection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/csvAggregator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0b5b163-a5b7-467a-afeb-6474f14cd9bb" name="Default Changelist" comment="" />
+      <created>1596580154981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596580154981</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="37" y="23" width="1415" height="1097" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49844238" visible="true" weight="0.21305595" />
+      <window_info id="Structure" order="1" sideWeight="0.50155765" side_tool="true" weight="0.19591029" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42288557" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3880597" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3291536" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3283582" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3283582" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/csvAggregator.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/csvAggregator.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/csvAggregator.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/annotator/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_video_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-850">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/pandas/core/indexes/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="2890" selection-start-line="2890" selection-end-line="2890" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsonAggregator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="48" selection-start-line="48" selection-end-line="52" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csvAggregator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
