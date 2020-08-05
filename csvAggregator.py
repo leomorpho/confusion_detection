@@ -29,7 +29,6 @@ for route in annotatedJsonRoutes:
     del data['annotator']
     del data['framesDirectory']
     annotatedJson.append(data)
-    break
 
 npAnnotated = np.asarray(annotatedJson)
 openFaceJson = []
@@ -42,7 +41,6 @@ for file in openFaceJsonRoutes:
         dataString = data.to_string(header=None, index=None)
         dataString1 = dataString.strip("{'person_id': [-1], 'pose_keypoints_2d':")
         dataString2 = dataString1.strip("], 'face_keypoints_2d': [], 'hand_left_keypoints_2d': [], 'hand_right_keypoints_2d': [], 'pose_keypoints_3d': [], 'face_keypoints_3d': [], 'hand_left_keypoints_3d': [], 'hand_right_keypoints_3d': []}")
-        # stringArray = re.sub("[^\w]", " ",  dataString2).split()
         stringArray = dataString2.split()
         files.append(stringArray)
     openFaceJson.append(files)
@@ -64,6 +62,6 @@ for row in range(len(combinedArray[0])):
 # export to json
 for i in range(len(combinedArray)):
     route = "data/combinedJsons/" + routesForRaw[i] + ".json"
-    print(route)
+    # print(route)
     with open(route, 'w') as f:
         json.dump(combinedArray, f)
