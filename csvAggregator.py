@@ -11,6 +11,7 @@ for route in annotatedJsonRoutes:
     route2 = route1.strip('.json')
     routesForRaw.append(route2)
 
+
 # get correlated openPose json from new_raw
 openPoseDir = "data/new_raw/"
 openPoseJsonRoutes = []
@@ -21,12 +22,14 @@ for index in range(len(routesForRaw)):
     globRoutes = glob(dirRoute)
     if globRoutes == []:
         indecesToPop.append(index)
-    openPoseJsonRoutes.append(sorted(globRoutes))
+    else:
+        openPoseJsonRoutes.append(sorted(globRoutes))
 
 # print(indecesToPop)
 for i in sorted(indecesToPop, reverse=True):
-    print(i, routesForRaw[i])
+    # print(i, routesForRaw[i])
     routesForRaw.pop(i)
+    annotatedJsonRoutes.pop(i)
 
 
 
@@ -40,7 +43,17 @@ for route in annotatedJsonRoutes:
     dataString = data.to_string(header=None, index=None)
     dataString1 = dataString.strip("labels")
     stringArray = dataString1.split()
-    annotatedJson.append(stringArray)
+    array = []
+    for string in stringArray:
+        if string == "none":
+            array.append(0)
+        elif string == "not confused":
+            array.append(1)
+        elif string == "uncertain":
+            array.append(2)
+        elif string == "confused":
+            array.append(3)
+    annotatedJson.append(array)
 
 
 npAnnotated = np.asarray(annotatedJson, dtype=object)
@@ -70,37 +83,36 @@ for file in openPoseJsonRoutes:
 
 
 npOpenPose = np.asarray(openPoseJson, dtype=object)
+# print("routesForRaw shape is: ", len(routesForRaw))
 # print("npOpenPose shape is: ", npOpenPose.shape)
 # print("npAnnotated shape is: ", npAnnotated.shape)
 # print("npAnnotated type is: ", type(npAnnotated))
-# print("npOpenPose[0] is: ", npOpenPose[0])
-# print("npAnnotated[0] is: ", npAnnotated[0][0])
-
-# exit(0)
 
 # combine the array
 combinedArray = []
-print("npAnnotated shape is: ", npAnnotated.shape)
-print("npOpenPose shape is: ", npOpenPose.shape)
-# print(npAnnotated)
+
 for file in range(len(npAnnotated)):
     array = []
-    # print(npAnnotated[file])
+
     # print("file number is: ", file)
-    # print("npOpenPose[file].length is: ", len(npOpenPose[file]))
-    # print("npAnnotated[file].length is: ", len(npAnnotated[file]))
+    # print(routesForRaw[file])
     # print("npOpenPose[file] is: ", npOpenPose[file])
+    # print("npOpenPose[file].length is: ", len(npOpenPose[file]))
     # print("npAnnotated[file] is: ", npAnnotated[file])
+    # print("npAnnotated[file].length is: ", len(npAnnotated[file]))
+
     if len(npOpenPose[file]) != 0 and len(npAnnotated[file]) != 0:
         frameMaxLen = min(len(npAnnotated[file]) - 1, len(npOpenPose[file]))
         for frame in range(frameMaxLen):
-            if len(npOpenPose[file]) != 0 and len(npAnnotated[file]) != 0:
-                # print("npAnnotated[file][frame]", npAnnotated[file][frame])
-                # print("npOpenPose[file][frame]", npOpenPose[file][frame])
-                annotatedRow = [npAnnotated[file][frame]]
-                joinedRow = [annotatedRow, npOpenPose[file][frame].tolist()]
-                # print(joinedRow)
-                array.append(joinedRow)
+            # print("npAnnotated[file][frame]", npAnnotated[file][frame])
+            # print("npOpenPose[file][frame]", npOpenPose[file][frame])
+            # annotatedRow = [npAnnotated[file][frame]]
+            newRow = npOpenPose[file][frame].tolist()
+            if isinstance(newRow, list):
+                newRow.insert(0, npAnnotated[file][frame])
+                array.append(newRow)
+            else:
+                array.append([npAnnotated[file][frame]])
         combinedArray.append(array)
 
 # for row in range(len(combinedArray[0])):
