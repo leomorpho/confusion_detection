@@ -15,6 +15,7 @@ data/raw/*
 data/tmp
 data/done
 data/compressed
+**/.idea/
 
 # C extensions
 *.so
