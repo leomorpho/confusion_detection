@@ -50,6 +50,21 @@ TODO: number of frames processed by OpenPose
 * Because both the `COCO` and `BODY_25` models were used to create the dataset with OpenPose, the `json` files will have 2 different numbers of datapoints. Some will have 25 for the`BODY_25` model, others will have 18 (I believe?) for the `COCO` model. Furthermore, there is one `json` created per frame. For a folder of frames (= 1 video), the OpenFace features in the `json` files must be stitched together. The annotation (confused/unknown/not confused/no person) must be added to the stiched object. The resulting `json`, which comprises the OpenFace features and confusion labels must be saved to disk.
 * What kind of data augmentation techniques can we use?
 
+### Annotation
+
+We had several problems during annotation:
+
+* OpenFace was set in the single person mode and sometimes would pick up either a research assistant in the background or the Pepper robot. OpenFace tended to also have more difficulty with people of smaller stature, often wrongly selecting the Pepper robot over the human participant. This resulted in some annotation sequences being cut. We will have to deal with this in preprocessing. Solutions are to either
+
+  * Stitch 2 sequences if the number of non-annotated frames between them are low and we are sure that it is the same person
+  * Drop the sequence otherwise
+
+* All frames with people had at least 1 person in the frame covered in the characteristic lines of OpenPose. The frames were aggressively compressed to 10% quality to save space.
+
+  ![Screen Shot 2020-08-07 at 11.29.38 AM](README.assets/Screen%20Shot%202020-08-07%20at%2011.29.38%20AM.png)
+
+* When participants were talking to the Pepper robot, the frames were labeled as "confused" if they appeared to annotators to be confused. In a real world scenario, a person talking to another can be confused. A robot designed to assist confused people would realistically not approach two people if one of them is confused, as it should be able to assume that one is helping the other. An interesting case could be of two confused people talking to one another. This may be a valid case for a helper robot to approach them. However, in our current experiment, OpenFace detects a single person in the frame, and we can therefore assume that that is the only person in the room.
+
 ## Annotation tool
 
 You will need the `data` directory to have the `raw` directory filled with the video data.
