@@ -121,7 +121,7 @@ for file in range(len(npAnnotated)):
 # print("combinedArray shape is: ", len(combinedArray))
 # export to json
 for i in range(len(combinedArray)):
-    route = "data/combinedJsons/" + routesForRaw[i] + "Combined.json"
+    route = "data/combined_jsons/" + routesForRaw[i] + "_combined.json"
     print(route)
     with open(route, 'w') as f:
         json.dump(combinedArray[i], f)
