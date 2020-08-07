@@ -6,6 +6,8 @@ import shlex
 import shutil
 import shutil
 import sys
+import numpy as np
+import multiprocessing
 from PIL import Image
 
 # This script creates a new dataset from the original dataset.
@@ -19,22 +21,14 @@ DATA = "data/raw"
 NEW_DATA = "data/new_raw"
 MAX_DIGITS_FRAME_NAME = 4
 TMP = "data/tmp"
-RENDER_EVERY_X = 3
 
 OPENPOSE_MACOS_INSTALL = "../openpose/build/examples/openpose/openpose.bin"
 OPENPOSE_WSL_WINDOWS = "/mnt/c/Users/leona/Downloads/openpose-1.6.0-binaries-win64-only_cpu-python-flir-3d/openpose/bin/OpenPoseDemo.exe"
 
-if __name__ == "__main__":
-    dirs = glob.glob(f"{DATA}/*")
+NUM_CORES = 4
 
-    videos = []
 
-    for directory in dirs:
-        videos.extend(glob.glob(f"{directory}/*.mp4"))
-
-    if not os.path.exists(NEW_DATA):
-        os.mkdir(NEW_DATA)
-
+def run_openpose(videos, run_id):
     for video in videos:
         print(video)
 
@@ -79,7 +73,8 @@ if __name__ == "__main__":
             # Skip image if already processed in earlier run
             name = ".".join(filepath.split("/")).split(".")[-2]
             if name in already_finished:
-                print("Image already processed. Not re-processing. Deleting original image {filepath}")
+                print(
+                    "Image already processed. Not re-processing. Deleting original image {filepath}")
                 os.remove(filepath)
                 continue
 
@@ -88,18 +83,19 @@ if __name__ == "__main__":
         # Hack to get OpenPose to work. Since there are too many images
         # in my directories, OpenPose crashes. Move each image to a directory
         # and then delete it. The results will be saved in the correct dir.
-            if os.path.exists(TMP):
-                shutil.rmtree(TMP)
+            tmp_for_thread = f"{TMP}/tmp{run_id}"
+            if os.path.exists(tmp_for_thread):
+                shutil.rmtree(tmp_for_thread)
 
-            os.mkdir(TMP)
+            os.mkdir(tmp_for_thread)
             image_name = filepath.split("/")[-1]
 
             # Copy image to TMP directory for OpenPose to process it
-            shutil.copyfile(filepath, f"{TMP}/{image_name}")
+            shutil.copyfile(filepath, f"{tmp_for_thread}/{image_name}")
             print(f"image_name: {image_name}")
 
-            OPENPOSE_COMMAND = f"-model_pose COCO --image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
-            # OPENPOSE_COMMAND = f"--image_dir {TMP} --write_images {TMP} --write_json {TMP} --display 0 -number_people_max 1"
+            OPENPOSE_COMMAND = f"-model_pose COCO --image_dir {tmp_for_thread} --write_images {tmp_for_thread} --write_json {tmp_for_thread} --display 0 -number_people_max 1"
+            # OPENPOSE_COMMAND = f"--image_dir {tmp_for_thread} --write_images {tmp_for_thread} --write_json {tmp_for_thread} --display 0 -number_people_max 1"
 
             # Run OpenPose against the TMP directory
             command = f"{OPENPOSE_MACOS_INSTALL} {OPENPOSE_COMMAND}"
@@ -115,17 +111,43 @@ if __name__ == "__main__":
                 print(f"Failed to run OpenPose: {e}")
                 sys.exit(1)
 
-            json_file = glob.glob(f"{TMP}/*.json")[0]
-            image_file = glob.glob(f"{TMP}/*.png")[0]
+            json_file = glob.glob(f"{tmp_for_thread}/*.json")[0]
+            image_file = glob.glob(f"{tmp_for_thread}/*.png")[0]
 
             # Copy rendered image back to data directory
             shutil.copy(json_file, frames_dir)
             picture = Image.open(image_file)
             image_name_no_extension = image_name.split(".")[0]
-            picture.save(f"{frames_dir}/{image_name_no_extension}_rendered.jpeg", 'JPEG', optimize=True, quality=10)
+            picture.save(f"{frames_dir}/{image_name_no_extension}_rendered.jpeg",
+                         'JPEG', optimize=True, quality=10)
             # Remove original if successful
             os.remove(filepath)
             print("Success")
+
+
+if __name__ == "__main__":
+    dirs = glob.glob(f"{DATA}/*")
+
+    videos = []
+
+    for directory in dirs:
+        videos.extend(glob.glob(f"{directory}/*.mp4"))
+
+    if not os.path.exists(NEW_DATA):
+        os.mkdir(NEW_DATA)
+
+    # Chunk videos for processing on different cores
+    videos_chunked = np.array_split(videos, NUM_CORES)
+    threads = []
+
+    for i in range(NUM_CORES):
+        p = multiprocessing.Process(
+            target=run_openpose, args=(videos_chunked[i], i,))
+        threads.append(p)
+        p.start()
+
+    for i in threads:
+        p.join()
 
     if "microsoft" in platform.uname()[3].lower():
         import winsound
@@ -136,4 +158,5 @@ if __name__ == "__main__":
     else:
         # Assume we're on Macos
         while True:
-            os.system('say "all videos in the data directory have been processed"')
+            os.system(
+                'say "all videos in the data directory have been processed"')
