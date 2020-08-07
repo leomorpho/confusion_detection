@@ -32,6 +32,8 @@ See [how to install OpenPose on Macos](https://github.com/CMU-Perceptual-Computi
 
 Because OpenPose can only extract 2D representations of images, we will use the same camera for all the data. 
 
+TODO: number of frames processed by OpenPose
+
 ### Work Logs
 
 #### Done

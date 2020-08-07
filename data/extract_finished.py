@@ -27,20 +27,22 @@ for processed_dir in processed_dirs:
             break
 
     if finished:
-        command = f"zip -vrj '{processed_dir}.zip' '{processed_dir}' -x '*.DS_Store'"
+        if not os.path.exists(f"{COMPRESSED}/{processed_dir}.zip"):
+            command = f"zip -vrj '{processed_dir}.zip' '{processed_dir}' -x '*.DS_Store'"
 
-        try:
-            subprocess.check_call(shlex.split(command))
-            print(f"compressed {processed_dir}")
-        except Exception as e:
-            print(f"failed to compress with error: {e}")
+            try:
+                subprocess.check_call(shlex.split(command))
+                print(f"compressed {processed_dir}")
+            except Exception as e:
+                print(f"failed to compress with error: {e}")
 
-        try:
-            if not os.path.exists(COMPRESSED):
-                os.mkdir(COMPRESSED)
-            shutil.move(f"{processed_dir}.zip", f"{COMPRESSED}/")
-        except shutil.Error:
-            pass
+            try:
+                if not os.path.exists(COMPRESSED):
+                    os.mkdir(COMPRESSED)
+                # Only compress if not already there
+                shutil.move(f"{processed_dir}.zip", f"{COMPRESSED}/")
+            except shutil.Error:
+                pass
 
     else:
         print("Not finished")
