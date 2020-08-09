@@ -45,6 +45,7 @@ combined_jsons_cases = [
 
 @pytest.mark.parametrize("case", combined_jsons_cases)
 def test_stitch_frames(case):
+    NUM_EXISTING_SEQUENCES = 3
     log.info("Case: " + case.name)
     log.debug("Input: " + str(case.json_path))
 
@@ -52,6 +53,16 @@ def test_stitch_frames(case):
     with open(f"{TESTDATA}/{case.json_path}") as f:
         raw_sequences.append(json.loads(f.read()))
 
+    # Add a couple normal sequences to make sure all are
+    # returned by preprocessing
+    with open(f"{TESTDATA}/normal.json") as f:
+        seq = json.loads(f.read())
+        raw_sequences.append(seq)
+        raw_sequences.append(seq)
+        raw_sequences.append(seq)
+
+    num_sequences = NUM_EXISTING_SEQUENCES + case.num_sequences
+
     processed_sequences = preprocessing.stitch_frames(raw_sequences)
 
-    assert(len(processed_sequences) == case.num_sequences)
+    assert(len(processed_sequences) == num_sequences)

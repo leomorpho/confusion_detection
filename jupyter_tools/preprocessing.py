@@ -65,7 +65,7 @@ def stitch_frames(
     # and new_sequences will contain a single sequence.
     new_sequences = [[]]
 
-    for raw_sequence in raw_sequences[:1]:
+    for raw_sequence in raw_sequences:
 
         # Keep track of the number of new sequences created
         sequences_count = 0
@@ -73,7 +73,7 @@ def stitch_frames(
         # Keep track of centroid from last frame
         last_frame_centroid = None
         # If less than MAX_DROPPED_FRAMES are dropped,
-        # the sequences will be stitched.
+        # the sequences will be stitched together.
         num_dropped_frames = 0
 
         for frame in raw_sequence:
@@ -110,7 +110,6 @@ def stitch_frames(
                 # Update position of last frame to current frame
                 last_frame_centroid = current_centroid
 
-    new_sequences = normalize(new_sequences)
     return new_sequences
 
 
