@@ -25,7 +25,7 @@ TMP = "data/tmp"
 OPENPOSE_MACOS_INSTALL = "../openpose/build/examples/openpose/openpose.bin"
 OPENPOSE_WSL_WINDOWS = "/mnt/c/Users/leona/Downloads/openpose-1.6.0-binaries-win64-only_cpu-python-flir-3d/openpose/bin/OpenPoseDemo.exe"
 
-NUM_CORES = 4
+NUM_CORES = 3
 
 
 def run_openpose(videos, run_id):
