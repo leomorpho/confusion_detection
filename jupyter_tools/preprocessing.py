@@ -1,28 +1,43 @@
 from typing import Tuple, List
+import math
+import logging
+import numpy as np
+
+
+log = logging.getLogger()
+log.setLevel(logging.DEBUG)
 
 
 MAX_DROPPED_FRAMES = 3
-MIN_DISTANCE_BTW_POSITIONS = 1
+MIN_DIST = 40
 
 
-def centeroidnp(arr):
+def centroid(frame):
     """
-    Find the centroid for an array of (x, y) points
+    Find the centroid for an array points (x, y)
     """
-    length = arr.shape[0]
-    sum_x = np.sum(arr[:, 0])
-    sum_y = np.sum(arr[:, 1])
+    # Create 2D array
+    frame = frame[1:]
+    frame_positions = np.array(list(zip(frame, frame[1:]))[::2])
+
+    length = frame_positions.shape[0]
+    sum_x = np.sum(frame_positions[:, 0])
+    sum_y = np.sum(frame_positions[:, 1])
     return sum_x/length, sum_y/length
 
 
 def dist(pair1: Tuple[float, float], pair2: Tuple[float, float]) -> float:
     """
-    Return distance between 2 points as a single scalar
+    Return distance between 2 points (x, y) as a single scalar
     """
     x_dist = abs(pair1[0] - pair2[0])
     y_dist = abs(pair2[1] - pair2[1])
 
-    return (x_dist + y_dist) / 2
+    dist = math.sqrt(x_dist**2 + y_dist**2)
+
+    log.debug(f"Distance: {dist}")
+
+    return dist
 
 
 def check_frames(raw_sequences: List[List[List[float]]]):
@@ -62,26 +77,29 @@ def check_frames(raw_sequences: List[List[List[float]]]):
         for frame in raw_sequence:
             # Create new sequence if the maximum amount
             # of dropped frames was reached.
+            if len(frame) < 2:
+                # Label or OpenPose data is missing
+                continue
             if num_dropped_frames >= MAX_DROPPED_FRAMES:
+                log.debug(f"Max dropped frames reached, creating new sequence.")
                 new_sequences.append([])
                 sequences_count += 1
+                num_dropped_frames = 0
                 new_sequences[sequences_count].append(frame)
             elif not last_frame_centroid:
+                log.debug(f"Appending first frame.")
                 # this frame is the first in the sequence
                 new_sequences[sequences_count].append(frame)
+                last_frame_centroid = centroid(frame)
             else:
-                # Create 2D array
-                frame = frame[1:]
-                frame_positions = list(zip(frame, frame[1:]))[::2]
-                current_centroid = centeroidnp(np.array(frame_positions))
-                print(current_centroid)
-                print(last_frame_centroid)
-                if dist(current_centroid, last_frame_centroid) > MIN_DISTANCE_BTW_POSITIONS \
+                current_centroid = centroid(frame)
+                if dist(current_centroid, last_frame_centroid) < MIN_DIST \
                         and frame[0] != 0:
                     # Current and previous frames are likely of the
                     # same participant.
                     new_sequences[sequences_count].append(frame)
                 else:
+                    log.debug("Frame distance too great, dropping.")
                     # This is a dud. Don't use it. It either has
                     # no participant (label = 0), or contains a different
                     # person than the wanted participant.

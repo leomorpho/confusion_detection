@@ -53,6 +53,5 @@ def test_check_frames(case):
         raw_sequences.append(json.loads(f.read()))
 
     processed_sequences = preprocessing.check_frames(raw_sequences)
-    log.debug(processed_sequences)
 
     assert(len(processed_sequences) == case.num_sequences)
