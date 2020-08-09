@@ -44,7 +44,7 @@ combined_jsons_cases = [
 
 
 @pytest.mark.parametrize("case", combined_jsons_cases)
-def test_check_frames(case):
+def test_stitch_frames(case):
     log.info("Case: " + case.name)
     log.debug("Input: " + str(case.json_path))
 
@@ -52,6 +52,6 @@ def test_check_frames(case):
     with open(f"{TESTDATA}/{case.json_path}") as f:
         raw_sequences.append(json.loads(f.read()))
 
-    processed_sequences = preprocessing.check_frames(raw_sequences)
+    processed_sequences = preprocessing.stitch_frames(raw_sequences)
 
     assert(len(processed_sequences) == case.num_sequences)

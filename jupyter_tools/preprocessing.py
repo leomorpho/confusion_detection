@@ -2,6 +2,7 @@ from typing import Tuple, List
 import math
 import logging
 import numpy as np
+from sklearn import preprocessing
 
 
 log = logging.getLogger()
@@ -40,7 +41,8 @@ def _dist(pair1: Tuple[float, float], pair2: Tuple[float, float]) -> float:
     return dist
 
 
-def stitch_frames(raw_sequences: List[List[List[float]]]):
+def stitch_frames(
+        raw_sequences: List[List[List[float]]]) -> List[List[List[float]]]:
     """
     Check for frames which have OpenPose data that does not fit
     with the previous frame. These errors are introduced because
@@ -108,4 +110,20 @@ def stitch_frames(raw_sequences: List[List[List[float]]]):
                 # Update position of last frame to current frame
                 last_frame_centroid = current_centroid
 
+    new_sequences = normalize(new_sequences)
     return new_sequences
+
+
+def normalize(
+        raw_sequences: List[List[List[float]]]) -> List[List[List[float]]]:
+    """
+    Applies zero mean and unit variance to all positions
+    within a frame.
+    """
+    for s_index, sequence in enumerate(raw_sequences):
+        for f_index, frame in enumerate(sequence):
+            preprocessed = preprocessing.scale(np.array(frame[1:]))
+            sequence[f_index][1:] = preprocessed
+            log.debug(sequence[f_index])
+
+    return raw_sequences
