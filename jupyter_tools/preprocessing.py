@@ -12,7 +12,7 @@ MAX_DROPPED_FRAMES = 3
 MIN_DIST = 40
 
 
-def centroid(frame):
+def _centroid(frame):
     """
     Find the centroid for an array points (x, y)
     """
@@ -26,7 +26,7 @@ def centroid(frame):
     return sum_x/length, sum_y/length
 
 
-def dist(pair1: Tuple[float, float], pair2: Tuple[float, float]) -> float:
+def _dist(pair1: Tuple[float, float], pair2: Tuple[float, float]) -> float:
     """
     Return distance between 2 points (x, y) as a single scalar
     """
@@ -40,7 +40,7 @@ def dist(pair1: Tuple[float, float], pair2: Tuple[float, float]) -> float:
     return dist
 
 
-def check_frames(raw_sequences: List[List[List[float]]]):
+def stitch_frames(raw_sequences: List[List[List[float]]]):
     """
     Check for frames which have OpenPose data that does not fit
     with the previous frame. These errors are introduced because
@@ -90,10 +90,10 @@ def check_frames(raw_sequences: List[List[List[float]]]):
                 log.debug(f"Appending first frame.")
                 # this frame is the first in the sequence
                 new_sequences[sequences_count].append(frame)
-                last_frame_centroid = centroid(frame)
+                last_frame_centroid = _centroid(frame)
             else:
-                current_centroid = centroid(frame)
-                if dist(current_centroid, last_frame_centroid) < MIN_DIST \
+                current_centroid = _centroid(frame)
+                if _dist(current_centroid, last_frame_centroid) < MIN_DIST \
                         and frame[0] != 0:
                     # Current and previous frames are likely of the
                     # same participant.
