@@ -10,7 +10,8 @@ log.setLevel(logging.DEBUG)
 
 
 MAX_DROPPED_FRAMES = 3
-MIN_DIST = 40
+MIN_DIST = 60
+MIN_SEQUENCE_LEN = 5
 
 
 def _centroid(frame):
@@ -36,13 +37,15 @@ def _dist(pair1: Tuple[float, float], pair2: Tuple[float, float]) -> float:
 
     dist = math.sqrt(x_dist**2 + y_dist**2)
 
-    log.debug(f"Distance: {dist}")
+    # log.debug(f"Distance: {dist}")
 
     return dist
 
 
 def stitch_frames(
-        raw_sequences: List[List[List[float]]]) -> List[List[List[float]]]:
+        raw_sequences: List[List[List[float]]],
+        min_dist: int = MIN_DIST,
+        min_sequence_len: int = MIN_SEQUENCE_LEN) -> List[List[List[float]]]:
     """
     Check for frames which have OpenPose data that does not fit
     with the previous frame. These errors are introduced because
@@ -56,19 +59,18 @@ def stitch_frames(
 
     :param raw_sequences: the sequences read from file
     :type  raw_sequences: List[List[List[float]]]
+    :param min_dist: minimum distance between centroids for same sequence
+    :type  min_dist: int
+    :param min_sequence_len: minimum number of frames per sequence
+    :type  min_sequence_len: int
 
     :returns new_sequences: the processed sequences
     :type    new_sequences: List[List[List[float]]]
     """
-    # new sequences are the cleaned up sequences. If less than
-    # MAX_DROPPED_FRAMES were dropped, the sequences will be stiched,
-    # and new_sequences will contain a single sequence.
-    new_sequences = [[]]
+    new_sequences = []
 
     for raw_sequence in raw_sequences:
-
-        # Keep track of the number of new sequences created
-        sequences_count = 0
+        new_sequence = []
 
         # Keep track of centroid from last frame
         last_frame_centroid = None
@@ -76,7 +78,7 @@ def stitch_frames(
         # the sequences will be stitched together.
         num_dropped_frames = 0
 
-        for frame in raw_sequence:
+        for frame_i, frame in enumerate(raw_sequence):
             # Create new sequence if the maximum amount
             # of dropped frames was reached.
             if len(frame) < 2:
@@ -84,24 +86,27 @@ def stitch_frames(
                 continue
             if num_dropped_frames >= MAX_DROPPED_FRAMES:
                 log.debug(f"Max dropped frames reached, creating new sequence.")
-                new_sequences.append([])
-                sequences_count += 1
+                if len(new_sequence) > min_sequence_len:
+                    new_sequences.append(new_sequence)
                 num_dropped_frames = 0
-                new_sequences[sequences_count].append(frame)
+                new_sequence = []
+
             elif not last_frame_centroid:
                 log.debug(f"Appending first frame.")
                 # this frame is the first in the sequence
-                new_sequences[sequences_count].append(frame)
+                new_sequence.append(frame)
                 last_frame_centroid = _centroid(frame)
+
             else:
                 current_centroid = _centroid(frame)
-                if _dist(current_centroid, last_frame_centroid) < MIN_DIST \
+                if _dist(current_centroid, last_frame_centroid) < min_dist \
                         and frame[0] != 0:
                     # Current and previous frames are likely of the
-                    # same participant.
-                    new_sequences[sequences_count].append(frame)
+                    # same participant. frame[0] == 0 equal to the label
+                    # indicating there is "no participant".
+                    new_sequence.append(frame)
                 else:
-                    log.debug("Frame distance too great, dropping.")
+                    # log.debug("Frame distance too great, dropping.")
                     # This is a dud. Don't use it. It either has
                     # no participant (label = 0), or contains a different
                     # person than the wanted participant.
@@ -109,6 +114,9 @@ def stitch_frames(
 
                 # Update position of last frame to current frame
                 last_frame_centroid = current_centroid
+
+        if len(new_sequence) > min_sequence_len:
+            new_sequences.append(new_sequence)
 
     return new_sequences
 

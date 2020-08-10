@@ -63,6 +63,7 @@ def test_stitch_frames(case):
 
     num_sequences = NUM_EXISTING_SEQUENCES + case.num_sequences
 
-    processed_sequences = preprocessing.stitch_frames(raw_sequences)
+    processed_sequences = preprocessing.stitch_frames(
+        raw_sequences, min_dist=40, min_sequence_len=1)
 
     assert(len(processed_sequences) == num_sequences)
