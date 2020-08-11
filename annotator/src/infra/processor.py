@@ -10,7 +10,7 @@ import getpass
 from typing import List
 from src.infra.logger import log
 
-RAW = "new_raw"
+RAW = "compressed"
 PROCESSED = "processed"
 
 # This is the maximum number of digits which can be in a frame name. This
@@ -72,6 +72,7 @@ class FrameProcessor:
         if random_dir:
             # Shuffles in place
             random.shuffle(self.queue)
+            print(self.queue)
 
         log.info(f"Queue length: {len(self.queue)}")
         log.info(f"First in queue: {self.queue[:3]}")
