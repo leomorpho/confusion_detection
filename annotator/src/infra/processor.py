@@ -38,16 +38,10 @@ class FrameProcessor:
 
         raw_dirs = glob.glob(f"{data_path}/{RAW}/*")
         processed_dirs = glob.glob(f"{data_path}/{processed_path}/*")
-        processed_dirs = [i.split("/")[-1].split(".")[0]  for i in processed_dirs]
+        processed_dirs = [i.split("/")[-1].split(".")[0]
+                          for i in processed_dirs]
 
         self.queue = raw_dirs
-
-        if random_dir:
-            # Shuffles in place
-            random.shuffle(self.queue)
-
-        log.info(f"Queue length: {len(self.queue)}")
-        log.info(f"First in queue: {self.queue[:3]}")
 
         # Build queue of unprocessed (unlabeled) directories
         # It's O^2 time but we don't care...
@@ -55,8 +49,32 @@ class FrameProcessor:
             raw_dir_name = raw_dir.split("/")[-1].split(".")[0]
             for processed_dir in processed_dirs:
                 if processed_dir == raw_dir_name:
-                    log.info(f"Already processed. Removing dir {processed_dir} from queue")
+                    log.info(
+                        f"Already processed. Removing dir {processed_dir} from queue")
                     self.queue.remove(raw_dir)
+
+        tmp_queue = []
+        # Remove if currently being processed by OpenPose.
+        for to_process in self.queue:
+            images = glob.glob(f"{to_process}/*.jpeg")
+            finished = True
+
+            for image in images:
+                if "render" not in image:
+                    finished = False
+                    break
+
+            if finished:
+                tmp_queue.append(to_process)
+
+        self.queue = tmp_queue
+
+        if random_dir:
+            # Shuffles in place
+            random.shuffle(self.queue)
+
+        log.info(f"Queue length: {len(self.queue)}")
+        log.info(f"First in queue: {self.queue[:3]}")
 
         # Keep track of current directory of raw data
         self.curr_dir = self.queue.pop()
