@@ -10,7 +10,7 @@ import getpass
 from typing import List
 from src.infra.logger import log
 
-RAW = "compressed"
+RAW = "new_raw"
 PROCESSED = "processed"
 
 # This is the maximum number of digits which can be in a frame name. This
