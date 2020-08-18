@@ -33,7 +33,7 @@ for i in sorted(indecesToPop, reverse=True):
 
 
 
-# print("openPoseJsonRoutes len is: ", len(openPoseJsonRoutes))
+print("openPoseJsonRoutes len is: ", len(openPoseJsonRoutes))
 annotatedJson = []
 # import annotatedJsons
 for route in annotatedJsonRoutes:
@@ -94,7 +94,7 @@ combinedArray = []
 for file in range(len(npAnnotated)):
     array = []
 
-    # print("file number is: ", file)
+    print("file number is: ", file)
     # print(routesForRaw[file])
     # print("npOpenPose[file] is: ", npOpenPose[file])
     # print("npOpenPose[file].length is: ", len(npOpenPose[file]))
