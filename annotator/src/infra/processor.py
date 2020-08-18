@@ -64,7 +64,7 @@ class FrameProcessor:
                     finished = False
                     break
 
-            if finished:
+            if not finished:
                 tmp_queue.append(to_process)
 
         self.queue = tmp_queue

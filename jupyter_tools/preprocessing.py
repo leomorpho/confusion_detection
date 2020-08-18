@@ -100,7 +100,7 @@ def stitch_frames(
             else:
                 current_centroid = _centroid(frame)
                 if _dist(current_centroid, last_frame_centroid) < min_dist \
-                        and frame[0] != 0:
+                        and int(frame[0]) != 0:
                     # Current and previous frames are likely of the
                     # same participant. frame[0] == 0 equal to the label
                     # indicating there is "no participant".
