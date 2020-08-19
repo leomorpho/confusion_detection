@@ -69,6 +69,10 @@ class FrameProcessor:
 
         self.queue = tmp_queue
 
+        # Assert that no processed directory is in the queue
+        log.error(f"Number of annotated dirs: {len(processed_dirs)}")
+        assert(len(set(self.queue).intersection(set(processed_dirs))) == 0)
+
         if random_dir:
             # Shuffles in place
             random.shuffle(self.queue)
@@ -85,6 +89,7 @@ class FrameProcessor:
 
         # Results dictionnary, where each label for each frame is stored
         self.results = dict()
+
 
     def save(self, label: str):
         """

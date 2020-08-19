@@ -1,6 +1,7 @@
 import pytest
 import logging
 import json
+import glob
 from typing import List
 from jupyter_tools import preprocessing
 
@@ -41,9 +42,9 @@ combined_jsons_cases = [
         num_sequences=5
     ),
     InputOutputCase(
-       name="No test subject",
-       json_path="no_test_subject.json",
-       num_sequences=3
+        name="No test subject",
+        json_path="no_test_subject.json",
+        num_sequences=3
     ),
 ]
 
@@ -74,3 +75,26 @@ def test_stitch_frames(case):
             f"Expected {case.num_sequences}, found {len_processed_sequences}")
         log.error(json.dumps(processed_sequences, indent=2))
     assert(len_processed_sequences == case.num_sequences)
+
+
+def test_only_subjects_in_frames():
+    DATA_DIR = "../data/combined_jsons"
+    dataset_paths = glob.glob(f"{DATA_DIR}/*")
+
+    raw_sequences = []
+
+    for path in dataset_paths:
+        with open(path, "r") as f:
+            sequences = json.loads(f.read())
+        raw_sequences.append(sequences)
+
+    assert(len(raw_sequences) == len(dataset_paths) )
+
+    parsed_sequences = preprocessing.stitch_frames(
+        raw_sequences, min_dist=40, min_sequence_len=10)
+
+    assert(len(parsed_sequences) > len(dataset_paths) )
+
+    for sequence in parsed_sequences:
+        for frame in sequence:
+            assert(int(frame[0]) in {1, 2, 3})
