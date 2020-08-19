@@ -84,11 +84,6 @@ def stitch_frames(
             if len(frame) < 2:
                 # Label or OpenPose data is missing
                 continue
-            elif not last_frame_centroid:
-                log.debug(f"Appending first frame.")
-                # this frame is the first in the sequence
-                new_sequence.append(frame)
-                last_frame_centroid = _centroid(frame)
 
             elif num_dropped_frames >= MAX_DROPPED_FRAMES:
                 log.debug(f"Max dropped frames reached, creating new sequence.")
@@ -97,23 +92,30 @@ def stitch_frames(
                 num_dropped_frames = 0
                 new_sequence = []
 
+            elif int(frame[0]) == 0:
+                num_dropped_frames += 1
+
             else:
                 current_centroid = _centroid(frame)
-                if _dist(current_centroid, last_frame_centroid) < min_dist \
-                        and int(frame[0]) != 0:
+                if last_frame_centroid is None:
+                    log.debug(f"Appending first frame.")
+                    # this frame is the first in the sequence
+                    new_sequence.append(frame)
+                    # Update position of last frame to current frame
+                    last_frame_centroid = current_centroid
+                elif _dist(current_centroid, last_frame_centroid) < min_dist:
                     # Current and previous frames are likely of the
                     # same participant. frame[0] == 0 equal to the label
                     # indicating there is "no participant".
                     new_sequence.append(frame)
+                    # Update position of last frame to current frame
+                    last_frame_centroid = current_centroid
                 else:
                     # log.debug("Frame distance too great, dropping.")
                     # This is a dud. Don't use it. It either has
                     # no participant (label = 0), or contains a different
                     # person than the wanted participant.
                     num_dropped_frames += 1
-
-                # Update position of last frame to current frame
-                last_frame_centroid = current_centroid
 
         if len(new_sequence) >= min_sequence_len:
             new_sequences.append(new_sequence)
