@@ -86,7 +86,7 @@ def stitch_frames(
                 continue
 
             elif num_dropped_frames >= MAX_DROPPED_FRAMES:
-                log.debug(f"Max dropped frames reached, creating new sequence.")
+                # log.debug(f"Max dropped frames reached, creating new sequence.")
                 if len(new_sequence) > min_sequence_len:
                     new_sequences.append(new_sequence)
                 num_dropped_frames = 0
@@ -98,7 +98,7 @@ def stitch_frames(
             else:
                 current_centroid = _centroid(frame)
                 if last_frame_centroid is None:
-                    log.debug(f"Appending first frame.")
+                    # log.debug(f"Appending first frame.")
                     # this frame is the first in the sequence
                     new_sequence.append(frame)
                     # Update position of last frame to current frame
