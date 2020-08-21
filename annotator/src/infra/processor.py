@@ -41,36 +41,46 @@ class FrameProcessor:
         processed_dirs = [i.split("/")[-1].split(".")[0]
                           for i in processed_dirs]
 
+        log.info(f"Number of dirs in \"raw\" dir:  {len(raw_dirs)}")
+        log.info(f"Number of dirs in \"processed\" dir:  {len(processed_dirs)}")
+
         self.queue = raw_dirs
 
         # Build queue of unprocessed (unlabeled) directories
         # It's O^2 time but we don't care...
+        already_processed_count = 0
+        processed_dirs_set = set(processed_dirs)
+
         for raw_dir in raw_dirs:
             raw_dir_name = raw_dir.split("/")[-1].split(".")[0]
-            for processed_dir in processed_dirs:
-                if processed_dir == raw_dir_name:
-                    log.info(
-                        f"Already processed. Removing dir {processed_dir} from queue")
-                    self.queue.remove(raw_dir)
+            if raw_dir_name in processed_dirs_set:
+                log.info(
+                    f"Already processed. Removing dir {raw_dir_name} from queue")
+                self.queue.remove(raw_dir)
+                already_processed_count += 1
 
+        log.info(f"Removed {already_processed_count} processed dirs from queue")
         tmp_queue = []
-        # Remove if currently being processed by OpenPose.
-        for to_process in self.queue:
-            images = glob.glob(f"{to_process}/*.jpeg")
-            finished = True
 
-            for image in images:
-                if "render" not in image:
-                    finished = False
-                    break
+        # BELOW NOT WORKING. It's supposed to remove dirs currently being processed by OpenPose.
+        # # Remove if currently being processed by OpenPose.
+        # for to_process in self.queue:
+        #     images = glob.glob(f"{to_process}/*.jpeg")
+        #     finished = True
 
-            if not finished:
-                tmp_queue.append(to_process)
+        #     for image in images:
+        #         if "render" not in image:
+        #             finished = False
+        #             break
 
-        self.queue = tmp_queue
+        #     if not finished:
+        #         tmp_queue.append(to_process)
+
+        # self.queue = tmp_queue
 
         # Assert that no processed directory is in the queue
-        log.error(f"Number of annotated dirs: {len(processed_dirs)}")
+        log.info(f"Number of annotated dirs:    {len(processed_dirs)}")
+        log.info(f"Number of dirs to annotate:  {len(self.queue)}")
         assert(len(set(self.queue).intersection(set(processed_dirs))) == 0)
 
         if random_dir:
