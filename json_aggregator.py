@@ -11,6 +11,24 @@ for route in annotatedJsonRoutes:
     route2 = route1.strip('.json')
     routesForRaw.append(route2)
 
+# remove files that have already been combined
+previouslyCombinedJson = glob("data/combined_jsons/*")
+routesToRemove = []
+for route in previouslyCombinedJson:
+    route1 = route.strip('data/combined_jsons/')
+    route2 = route1.strip('_combined.json')
+    routesToRemove.append(route2)
+
+routesToPop = []
+for i in range(len(routesForRaw)):
+    for route in routesToRemove:
+        if routesForRaw[i] == route:
+            routesToPop.append(i)
+
+for i in sorted(routesToPop, reverse=True):
+    # print(i, routesForRaw[i])
+    routesForRaw.pop(i)
+    annotatedJsonRoutes.pop(i)
 
 # get correlated openPose json from new_raw
 openPoseDir = "data/new_raw/"
