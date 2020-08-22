@@ -50,9 +50,15 @@ class FrameProcessor:
         # It's O^2 time but we don't care...
         already_processed_count = 0
         processed_dirs_set = set(processed_dirs)
+        log.info(processed_dirs_set)
+
+        raw_dirs_tmp = set(x.strip("../data/new_raw/") for x in raw_dirs)
+        log.info(f"Intersection of raw and processed dirs: {len(raw_dirs_tmp.intersection(processed_dirs_set))}")
+        log.debug(f"{raw_dirs_tmp}")
+        log.debug(f"{processed_dirs_set}")
 
         for raw_dir in raw_dirs:
-            raw_dir_name = raw_dir.split("/")[-1].split(".")[0]
+            raw_dir_name = raw_dir.strip("../data/new_raw/")
             if raw_dir_name in processed_dirs_set:
                 log.info(
                     f"Already processed. Removing dir {raw_dir_name} from queue")
