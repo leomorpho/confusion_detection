@@ -39,7 +39,7 @@ combined_jsons_cases = [
     InputOutputCase(
         name="3 frame missing",
         json_path="3_frame_missing.json",
-        num_sequences=5
+        num_sequences=8
     ),
     InputOutputCase(
         name="No test subject",
