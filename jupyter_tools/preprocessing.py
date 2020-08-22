@@ -45,7 +45,8 @@ def _dist(pair1: Tuple[float, float], pair2: Tuple[float, float]) -> float:
 def stitch_frames(
         raw_sequences: List[List[List[float]]],
         min_dist: int = MIN_DIST,
-        min_sequence_len: int = MIN_SEQUENCE_LEN) -> List[List[List[float]]]:
+        min_sequence_len: int = MIN_SEQUENCE_LEN,
+        max_dropped_frames: int = MAX_DROPPED_FRAMES) -> List[List[List[float]]]:
     """
     Check for frames which have OpenPose data that does not fit
     with the previous frame. These errors are introduced because
@@ -57,6 +58,8 @@ def stitch_frames(
     sequences separated by these faulty frames should be stitched back
     together. Else, separate them as two distinct sequences.
 
+    :param max_dropped_frames: the maximum number of dropped frames allowed in one sequence:
+    :type max_dropped_frames: int
     :param raw_sequences: the sequences read from file
     :type  raw_sequences: List[List[List[float]]]
     :param min_dist: minimum distance between centroids for same sequence
@@ -74,7 +77,7 @@ def stitch_frames(
 
         # Keep track of centroid from last frame
         last_frame_centroid = None
-        # If less than MAX_DROPPED_FRAMES are dropped,
+        # If less than max_dropped_frames are dropped,
         # the sequences will be stitched together.
         num_dropped_frames = 0
 
@@ -85,12 +88,13 @@ def stitch_frames(
                 # Label or OpenPose data is missing
                 continue
 
-            elif num_dropped_frames >= MAX_DROPPED_FRAMES:
+            elif num_dropped_frames >= max_dropped_frames:
                 # log.debug(f"Max dropped frames reached, creating new sequence.")
-                if len(new_sequence) > min_sequence_len:
+                if len(new_sequence) >= min_sequence_len:
                     new_sequences.append(new_sequence)
                 num_dropped_frames = 0
                 new_sequence = []
+                last_frame_centroid = None
 
             elif int(frame[0]) == 0:
                 num_dropped_frames += 1
@@ -103,7 +107,7 @@ def stitch_frames(
                     new_sequence.append(frame)
                     # Update position of last frame to current frame
                     last_frame_centroid = current_centroid
-                elif _dist(current_centroid, last_frame_centroid) < min_dist:
+                elif _dist(current_centroid, last_frame_centroid) <= min_dist:
                     # Current and previous frames are likely of the
                     # same participant. frame[0] == 0 equal to the label
                     # indicating there is "no participant".
