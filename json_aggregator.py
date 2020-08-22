@@ -58,11 +58,14 @@ for route in annotatedJsonRoutes:
     data = pd.read_json(route)
     del data['annotator']
     del data['framesDirectory']
-    dataString = data.to_string(header=None, index=None)
-    dataString1 = dataString.strip("labels")
-    stringArray = dataString1.split()
+    targets = data['labels']
+    # dataString = data.to_string(header=None, index=None)
+    # for i in range(len(dataString)):
+    #     print(dataString[i])
+    # dataString1 = dataString.strip("labels")
+    # stringArray = dataString1.strip("\n")
     array = []
-    for string in stringArray:
+    for string in targets:
         if string == "none":
             array.append(0)
         elif string == "not confused":
