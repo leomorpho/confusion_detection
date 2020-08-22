@@ -58,14 +58,14 @@ def stitch_frames(
     sequences separated by these faulty frames should be stitched back
     together. Else, separate them as two distinct sequences.
 
-    :param max_dropped_frames: the maximum number of dropped frames allowed in one sequence:
-    :type max_dropped_frames: int
     :param raw_sequences: the sequences read from file
     :type  raw_sequences: List[List[List[float]]]
     :param min_dist: minimum distance between centroids for same sequence
     :type  min_dist: int
     :param min_sequence_len: minimum number of frames per sequence
     :type  min_sequence_len: int
+    :param max_dropped_frames: the maximum number of dropped frames allowed in one sequence:
+    :type  max_dropped_frames: int
 
     :returns new_sequences: the processed sequences
     :type    new_sequences: List[List[List[float]]]
