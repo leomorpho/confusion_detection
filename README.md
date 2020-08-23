@@ -1,6 +1,6 @@
 # README
 
-Our code can all be accessed through our Jupyter Notebook [here](https://colab.research.google.com/drive/1GB-D6D5eOkK_TgdmVJ8mqMvPmIvMl7aG).
+Our code can all be accessed through our Jupyter Notebook [in this repo](confusion_detection.ipynb) or on [Google Colab](https://colab.research.google.com/drive/1GB-D6D5eOkK_TgdmVJ8mqMvPmIvMl7aG).
 
 Our annotation, json_aggregator, and preprocessing scripts are present in the repository, and are pulled into our Notebook in the top cell. With regards to our proposal, which set out to construct a model that could reliably predict a customer’s confusion level with high confidence, we would classify our achievement as a “qualified success”. Based on the difficulties we had with the data, and the resulting time limitations we had in building and improving our model, the fact that we were able to produce results above random chance is certainly a success. However, we were unable to produce a model capable of achieving the requirements of the use case we set out to address. Due to the issues mentioned, we were unable to try building models other than the LSTM, improve or increase the complexity of the LSTMs we did build, and were unable to complete a working autoencoder. All required dependencies are included in the Jupyter Notebook.
 
