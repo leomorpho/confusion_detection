@@ -50,10 +50,6 @@ AlphaPose seems to have slightly better performances than OpenPose, but only wor
 
 See [how to install OpenPose on Macos](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation.md)
 
-Because OpenPose can only extract 2D representations of images, we will use the same camera for all the data. 
-
-TODO: number of frames processed by OpenPose
-
 ### Annotation
 
 We had several problems during annotation:
@@ -67,7 +63,7 @@ We had several problems during annotation:
 
   ![Screen Shot 2020-08-07 at 11.29.38 AM](README.assets/Screen%20Shot%202020-08-07%20at%2011.29.38%20AM.png)
 
-* When participants were talking to the Pepper robot, the frames were labeled as "confused" if they appeared to annotators to be confused. In a real world scenario, a person talking to another can be confused. A robot designed to assist confused people would realistically not approach two people if one of them is confused, as it should be able to assume that one is helping the other. An interesting case could be of two confused people talking to one another. This may be a valid case for a helper robot to approach them. However, in our current experiment, OpenFace detects a single person in the frame, and we can therefore assume that that is the only person in the room.
+* When participants were talking to the Pepper robot, the frames were labeled as "confused" if they appeared to annotators to be confused. In a real world scenario, a person talking to another can be confused. A robot designed to assist confused people would realistically not approach two people if one of them is confused, as it should be able to assume that one is helping the other. An interesting case could be if two confused people were talking to one another. This may be a valid case for a helper robot to approach them. However, in our current experiment, OpenFace detects a single person in the frame, and we can therefore assume that that is the only person in the room.
 
 ## Annotation tool
 
